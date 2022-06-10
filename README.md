@@ -1,6 +1,8 @@
 # user_futsal
 
-A new Flutter project.
+Aplikasi Sewa lapangan Futsal Daerah Pandaan
+- Menggunakan API PHP sebagai server dan mysql sebagai database
+- Menggunakan framework flutter sebagai front end dimobile 
 
 ## Getting Started
 
