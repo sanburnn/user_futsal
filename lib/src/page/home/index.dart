@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:user_futsal/src/services/themes.dart';
 
 class FutsalHomePage extends StatefulWidget {
   FutsalHomePage({Key? key}) : super(key: key);
@@ -17,8 +19,13 @@ class _FutsalHomePageState extends State<FutsalHomePage> {
           return <Widget>[
             SliverToBoxAdapter(
               child: Container(
-                padding: EdgeInsets.only(left: 30),
-                child: Text('Hello'),
+                padding: EdgeInsets.only(left: 30, top: 50),
+                child: Text('Hello',
+                    style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: primaryColorDark,
+                            fontSize: 30))),
               ),
             )
           ];
