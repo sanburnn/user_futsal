@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:user_futsal/src/controller/cekuser_controller.dart';
 import 'package:user_futsal/src/services/themes.dart';
 
 class FutsalHomePage extends StatefulWidget {
@@ -10,6 +12,7 @@ class FutsalHomePage extends StatefulWidget {
 }
 
 class _FutsalHomePageState extends State<FutsalHomePage> {
+  CekuserController cek = Get.put(CekuserController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +28,7 @@ class _FutsalHomePageState extends State<FutsalHomePage> {
                         textStyle: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: primaryColorDark,
-                            fontSize: 30))),
+                            fontSize: 26))),
               ),
             )
           ];
