@@ -65,7 +65,7 @@ class _LapanganFutsalState extends State<LapanganFutsal> {
                             primary: primaryColorDark,
                             onPrimary: Colors.white, // foreground
                           ),
-                          onPressed: () async {},
+                          onPressed: () {},
                           child: Row(
                             children: [
                               Icon(
