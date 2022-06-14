@@ -15,12 +15,49 @@ class PertandinganPageState extends State<PertandinganPage> {
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(color: primaryColorDark),
+        backgroundColor: Colors.white,
         title: Text(
           'Jadwal Pertandingan',
-          style: GoogleFonts.poppins(),
+          style: GoogleFonts.poppins(color: Colors.black),
         ),
       ),
-      body: Container(),
+      body: Container(
+        child: ListView.builder(
+            itemCount: 2,
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: EdgeInsets.only(left: 15, right: 15),
+                child: Card(
+                  elevation: 10,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 5),
+                        child: Text(
+                          'Jadwal Pertandingan',
+                          style: GoogleFonts.poppins(
+                              textStyle: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 15,
+                                  color: primaryColorDark)),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      )
+                    ],
+                  ),
+                ),
+              );
+            }),
+      ),
     );
   }
 }
