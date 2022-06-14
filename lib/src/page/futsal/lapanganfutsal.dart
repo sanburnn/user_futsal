@@ -65,7 +65,8 @@ class _LapanganFutsalState extends State<LapanganFutsal> {
                             primary: primaryColorDark,
                             onPrimary: Colors.white, // foreground
                           ),
-                          onPressed: () {},
+                          onPressed: () => Get.toNamed(pertandinganRoute,
+                              arguments: [idLap]),
                           child: Row(
                             children: [
                               Icon(
