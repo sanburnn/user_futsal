@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:user_futsal/src/config/env.dart';
+import 'package:user_futsal/src/router/constant.dart';
 import 'package:user_futsal/src/services/assets.dart';
 import 'package:user_futsal/src/services/themes.dart';
 
@@ -97,7 +98,8 @@ class _LapanganFutsalState extends State<LapanganFutsal> {
                             primary: primaryColorDark,
                             onPrimary: Colors.white, // foreground
                           ),
-                          onPressed: () async {},
+                          onPressed: () =>
+                              Get.toNamed(fasilitasRoute, arguments: [idLap]),
                           child: Row(
                             children: [
                               Image.asset(
