@@ -6,7 +6,7 @@ class PertandinganController extends GetxController {
   var isLoading = true.obs;
   var per = <Pertandingan>[].obs;
 
-  void getFasilitas(int id) async {
+  void getPertandingan(int id) async {
     try {
       isLoading(true);
       var res = await ApiService().getPertandingan(id);

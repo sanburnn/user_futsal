@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:user_futsal/src/controller/pertandingan_controller.dart';
 import 'package:user_futsal/src/services/themes.dart';
 
 class PertandinganPage extends StatefulWidget {
@@ -10,6 +12,15 @@ class PertandinganPage extends StatefulWidget {
 }
 
 class PertandinganPageState extends State<PertandinganPage> {
+  PertandinganController tanding = Get.put(PertandinganController());
+  var idLap = Get.arguments[0];
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    tanding.getPertandingan(idLap);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,61 +52,69 @@ class PertandinganPageState extends State<PertandinganPage> {
           ];
         },
         body: Container(
-          child: ListView.builder(
-              itemCount: 2,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: EdgeInsets.only(left: 15, right: 15),
-                  child: Card(
-                    elevation: 10,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                          height: 15,
+          child: Obx(() {
+            if (tanding.isLoading.value) {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            } else {
+              return ListView.builder(
+                  itemCount: tanding.per.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: EdgeInsets.only(left: 15, right: 15),
+                      child: Card(
+                        elevation: 10,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              height: 15,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 10),
+                              child: Text(
+                                'Atas Nama ${tanding.per[index].nama}',
+                                style: GoogleFonts.poppins(
+                                    textStyle: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 15,
+                                )),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 8,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 10),
+                              child: Text('Jam ${tanding.per[index].jam}',
+                                  style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(fontSize: 15))),
+                            ),
+                            SizedBox(
+                              height: 8,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 10),
+                              child: Text(
+                                'Tanggal ${tanding.per[index].tanggal}',
+                                style: GoogleFonts.poppins(
+                                    textStyle: TextStyle(fontSize: 15)),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 8,
+                            )
+                          ],
                         ),
-                        Padding(
-                          padding: EdgeInsets.only(left: 10),
-                          child: Text(
-                            'Atas Nama',
-                            style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 15,
-                            )),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 8,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(left: 10),
-                          child: Text('Jam',
-                              style: GoogleFonts.poppins(
-                                  textStyle: TextStyle(fontSize: 15))),
-                        ),
-                        SizedBox(
-                          height: 8,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(left: 10),
-                          child: Text(
-                            'Tanggal',
-                            style: GoogleFonts.poppins(
-                                textStyle: TextStyle(fontSize: 15)),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 8,
-                        )
-                      ],
-                    ),
-                  ),
-                );
-              }),
+                      ),
+                    );
+                  });
+            }
+          }),
         ),
       ),
     );
