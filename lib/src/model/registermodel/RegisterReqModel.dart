@@ -1,4 +1,6 @@
 class LoginRequestModel {
+  String? nama;
+  String? notlep;
   String? username;
   String? passwords;
 
