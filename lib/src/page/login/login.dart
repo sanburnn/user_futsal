@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:user_futsal/src/controller/login_controller.dart';
+import 'package:user_futsal/src/router/constant.dart';
 import 'package:user_futsal/src/services/assets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:user_futsal/src/services/themes.dart';
@@ -112,7 +113,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12)),
+                          borderRadius: BorderRadius.circular(22)),
                       primary: primaryColorDark,
                       onPrimary: Colors.white, // foreground
                     ),
@@ -140,6 +141,59 @@ class _LoginPageState extends State<LoginPage> {
                                   fontFamily: "Roboto"),
                             );
                     })),
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              padding: EdgeInsets.only(left: 20, right: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    height: 2,
+                    width: 100,
+                    color: primaryColorDark,
+                  ),
+                  SizedBox(
+                    width: 8,
+                  ),
+                  Text('OR'),
+                  SizedBox(
+                    width: 8,
+                  ),
+                  Container(
+                    width: 100,
+                    height: 2,
+                    color: primaryColorDark,
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 25, right: 25),
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: 50,
+                child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(22)),
+                      primary: primaryColorDark,
+                      onPrimary: Colors.white, // foreground
+                    ),
+                    onPressed: () => Get.toNamed(registerRoute),
+                    child: Text(
+                      'Daftar',
+                      style: TextStyle(
+                          fontSize: 19,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "Roboto"),
+                    )),
               ),
             ),
           ],
