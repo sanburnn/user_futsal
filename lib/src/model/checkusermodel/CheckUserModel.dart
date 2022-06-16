@@ -29,13 +29,17 @@ class CekUserModel {
 class UserModel {
   String? username;
   String? idPengguna;
+  String? nama;
+  String? notelp;
   int? exp;
 
-  UserModel({this.username, this.idPengguna, this.exp});
+  UserModel({this.username, this.idPengguna, this.nama, this.notelp, this.exp});
 
   UserModel.fromJson(Map<String, dynamic> json) {
     username = json['username'];
     idPengguna = json['id_pengguna'];
+    nama = json['nama'];
+    notelp = json['notelp'];
     exp = json['exp'];
   }
 
@@ -43,6 +47,8 @@ class UserModel {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['username'] = this.username;
     data['id_pengguna'] = this.idPengguna;
+    data['nama'] = this.nama;
+    data['notelp'] = this.notelp;
     data['exp'] = this.exp;
     return data;
   }

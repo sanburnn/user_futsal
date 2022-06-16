@@ -5,3 +5,4 @@ const String lapanganRoute = '/lapangan-page';
 const String fasilitasRoute = '/fasilitas';
 const String pertandinganRoute = '/pertandingan';
 const String registerRoute = '/register';
+const String bookingRoute = '/booking';
