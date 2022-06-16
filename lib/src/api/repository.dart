@@ -5,8 +5,10 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:user_futsal/src/config/env.dart';
 import 'package:user_futsal/src/model/checkusermodel/CheckUserModel.dart';
+import 'package:user_futsal/src/model/createtransaksimodel/CreateTrxModel.dart';
 import 'package:user_futsal/src/model/fasilitasmodel/FasilitasModel.dart';
 import 'package:user_futsal/src/model/futsalmodel/FutsalModel.dart';
+import 'package:user_futsal/src/model/harimodel/HariModel.dart';
 import 'package:user_futsal/src/model/loginmodel/LoginReqModel.dart';
 import 'package:user_futsal/src/model/loginmodel/LoginResModel.dart';
 import 'package:user_futsal/src/model/pertandinganmodel/PertandinganModel.dart';
@@ -113,6 +115,50 @@ class ApiService extends GetConnect {
     print(response.body);
     if (response.statusCode == 200) {
       var produk = transaksiFromJson(response.body);
+      return produk.data;
+    } else {
+      return null;
+    }
+  }
+
+  Future<CreateTrxModel?> createTransaksi(
+      String idfutsal,
+      String idpengguna,
+      String nama,
+      String notelp,
+      String tanggal,
+      String jam,
+      String status) async {
+    var url = Uri.parse('$BASE_URL/createtransaksi');
+    dynamic body = ({
+      "idfutsal": idfutsal,
+      "idpengguna": idpengguna,
+      "nama": nama,
+      "notelp": notelp,
+      "tanggal": tanggal,
+      "jam": jam,
+      "satatus": status
+    });
+    final response = await http.post(url,
+        headers: {
+          'Accept': 'application/json',
+        },
+        body: jsonEncode(body));
+    print(response.body);
+
+    if (response.statusCode == 200) {
+      return CreateTrxModel.fromJson(response.body);
+    } else {
+      return null;
+    }
+  }
+
+  Future<List<Hari>?> getHari(int id) async {
+    var url = Uri.parse('$BASE_URL/gethariuser/$id');
+    final response = await http.get(url);
+    print(response.body);
+    if (response.statusCode == 200) {
+      var produk = hariFromJson(response.body);
       return produk.data;
     } else {
       return null;

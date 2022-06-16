@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:user_futsal/src/controller/register_controller.dart';
 import 'package:user_futsal/src/router/constant.dart';
 import 'package:user_futsal/src/services/themes.dart';
 
@@ -19,6 +20,7 @@ class _RegisterPageState extends State<RegisterPage> {
   TextEditingController notelp = TextEditingController();
   TextEditingController username = TextEditingController();
   TextEditingController password = TextEditingController();
+  RegisterController regis = Get.put(RegisterController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -148,7 +150,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Container(
@@ -161,16 +163,33 @@ class _RegisterPageState extends State<RegisterPage> {
                     primary: primaryColorDark,
                     onPrimary: Colors.white, // foreground
                   ),
-                  onPressed: () async {},
-                  child: Text('Daftar',
-                      style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
-                          fontSize: 19,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ))),
+                  onPressed: () async {
+                    if (nama.text.isEmpty ||
+                        notelp.text.isEmpty | username.text.isEmpty ||
+                        password.text.isEmpty) {
+                      setState(() {
+                        validate = true;
+                      });
+                    } else {
+                      await regis.registerUsers(
+                          nama.text, notelp.text, username.text, password.text);
+                    }
+                  },
+                  child: Obx(() {
+                    return regis.isLoading.value == true
+                        ? const CircularProgressIndicator(
+                            color: Colors.white,
+                          )
+                        : const Text(
+                            'Daftar',
+                            style: TextStyle(
+                                fontSize: 19,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: "Roboto"),
+                          );
+                  })),
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             Row(
