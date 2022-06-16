@@ -12,14 +12,14 @@ class RegisterController extends GetxController {
   Future<void> registerUsers(
       String nama, String notelp, String username, String password) async {
     isLoading.value = true;
-    final response = await ApiService().loginApp(username, password);
+    final response =
+        await ApiService().register(nama, notelp, username, password);
     if (response != null) {
-      final prefs = await SharedPreferences.getInstance();
-      prefs.setString("Token", response.token!);
-      Get.toNamed(mainNavigationRoute);
+      Get.rawSnackbar(message: "Anda Berhasil Register");
+      Get.offAndToNamed(loginRoute);
     } else {
       Get.defaultDialog(
-          middleText: "Username atau Password Salah",
+          middleText: "Something wrong, contact admin",
           textConfirm: 'OK',
           confirmTextColor: Colors.white,
           buttonColor: primaryColorDark,
