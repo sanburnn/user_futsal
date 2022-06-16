@@ -3,3 +3,4 @@ const String BASE_URL_IMAGE_LAP =
     'https://bosomy-unit.000webhostapp.com/fotofutsal';
 const String BASE_URL_IMAGE_FASIL =
     'https://bosomy-unit.000webhostapp.com/fotofasilitas';
+const String BASE_URL_IMAGE_BUKTI = '';

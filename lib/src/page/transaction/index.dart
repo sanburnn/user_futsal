@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:user_futsal/src/services/themes.dart';
 
 class TransactionPage extends StatefulWidget {
   TransactionPage({Key? key}) : super(key: key);
@@ -33,11 +34,27 @@ class _TransactionPageState extends State<TransactionPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      SizedBox(
+                        height: 5,
+                      ),
                       Padding(
                           padding: EdgeInsets.only(left: 10),
                           child: Text(
                             'Transaksi',
-                          ))
+                            style: GoogleFonts.poppins(
+                                textStyle: TextStyle(
+                                    fontWeight: FontWeight.w500, fontSize: 17)),
+                          )),
+                      SizedBox(
+                        height: 7,
+                      ),
+                      Container(
+                        color: primaryGreyDark,
+                        height: 2,
+                      ),
+                      SizedBox(
+                        height: 100,
+                      )
                     ],
                   ),
                 ),

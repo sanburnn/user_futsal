@@ -10,6 +10,7 @@ import 'package:user_futsal/src/model/futsalmodel/FutsalModel.dart';
 import 'package:user_futsal/src/model/loginmodel/LoginReqModel.dart';
 import 'package:user_futsal/src/model/loginmodel/LoginResModel.dart';
 import 'package:user_futsal/src/model/pertandinganmodel/PertandinganModel.dart';
+import 'package:user_futsal/src/model/transaksimodel/TransaksiModel.dart';
 import 'package:user_futsal/src/prefs/prefrences.dart';
 
 class ApiService extends GetConnect {
@@ -76,6 +77,18 @@ class ApiService extends GetConnect {
     print(response.body);
     if (response.statusCode == 200) {
       var produk = pertandinganFromJson(response.body);
+      return produk.data;
+    } else {
+      return null;
+    }
+  }
+
+  Future<List<Transaksi>?> getTransaksi(int id) async {
+    var url = Uri.parse('$BASE_URL/transaksiuser/$id');
+    final response = await http.get(url);
+    print(response.body);
+    if (response.statusCode == 200) {
+      var produk = transaksiFromJson(response.body);
       return produk.data;
     } else {
       return null;
