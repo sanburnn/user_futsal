@@ -39,11 +39,11 @@ class _LoginPageState extends State<LoginPage> {
             ),
             Center(
               child: Text(
-                'Selamat Datang Di Aplikasi',
+                'Selamat Datang',
                 style: GoogleFonts.poppins(
                     color: primaryColorDark,
                     fontWeight: FontWeight.bold,
-                    fontSize: 21),
+                    fontSize: 25),
               ),
             ),
             SizedBox(
