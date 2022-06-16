@@ -146,7 +146,7 @@ class _LapanganFutsalState extends State<LapanganFutsal> {
                   Spacer(),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Container(
                           child: Text('Nomor Telpon',
@@ -154,9 +154,21 @@ class _LapanganFutsalState extends State<LapanganFutsal> {
                                   textStyle: TextStyle(
                                       fontSize: 15,
                                       fontWeight: FontWeight.w600)))),
-                      Text(
-                        "+${notelp.toString()}",
-                        style: GoogleFonts.poppins(),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.phone_forwarded_rounded,
+                            size: 20,
+                            color: primaryColorDark,
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            "+${notelp.toString()}",
+                            style: GoogleFonts.poppins(),
+                          ),
+                        ],
                       ),
                     ],
                   ),
