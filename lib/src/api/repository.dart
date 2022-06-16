@@ -10,6 +10,7 @@ import 'package:user_futsal/src/model/futsalmodel/FutsalModel.dart';
 import 'package:user_futsal/src/model/loginmodel/LoginReqModel.dart';
 import 'package:user_futsal/src/model/loginmodel/LoginResModel.dart';
 import 'package:user_futsal/src/model/pertandinganmodel/PertandinganModel.dart';
+import 'package:user_futsal/src/model/registermodel/RegisterResModel.dart';
 import 'package:user_futsal/src/model/transaksimodel/TransaksiModel.dart';
 import 'package:user_futsal/src/prefs/prefrences.dart';
 
@@ -30,6 +31,29 @@ class ApiService extends GetConnect {
       return LoginResModel.fromJson(response.body);
     } else {
       // print('Salah');
+      return null;
+    }
+  }
+
+  Future<RegisterResModel?> register(
+      String nama, String notelp, String username, String passwords) async {
+    var url = Uri.parse('$BASE_URL/daftaruser');
+    dynamic body = ({
+      "nama": nama,
+      "notelp": notelp,
+      "username": username,
+      "passwords": passwords
+    });
+    final response = await http.post(url,
+        headers: {
+          'Accept': 'application/json',
+        },
+        body: jsonEncode(body));
+    print(response.body);
+
+    if (response.statusCode == 200) {
+      return RegisterResModel.fromJson(response.body);
+    } else {
       return null;
     }
   }
