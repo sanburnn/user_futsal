@@ -5,6 +5,7 @@ import 'package:user_futsal/src/page/jadwalpage/pertandingan.dart';
 import 'package:user_futsal/src/page/login/login.dart';
 import 'package:user_futsal/src/page/main/root.dart';
 import 'package:user_futsal/src/page/main_page.dart';
+import 'package:user_futsal/src/page/register/register.dart';
 import 'constant.dart';
 
 final List<GetPage<dynamic>>? routes = [
@@ -13,5 +14,6 @@ final List<GetPage<dynamic>>? routes = [
   GetPage(name: mainNavigationRoute, page: () => const MainPage()),
   GetPage(name: lapanganRoute, page: () => LapanganFutsal()),
   GetPage(name: fasilitasRoute, page: () => FasilitasPage()),
-  GetPage(name: pertandinganRoute, page: () => PertandinganPage())
+  GetPage(name: pertandinganRoute, page: () => PertandinganPage()),
+  GetPage(name: registerRoute, page: () => RegisterPage())
 ];
