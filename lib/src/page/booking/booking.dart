@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:user_futsal/src/controller/cekuser_controller.dart';
 import 'package:user_futsal/src/controller/hari_controller.dart';
+import 'package:user_futsal/src/controller/jam_controller.dart';
 import 'package:user_futsal/src/services/themes.dart';
 
 class BookingPage extends StatefulWidget {
@@ -15,6 +16,7 @@ class BookingPage extends StatefulWidget {
 class _BookingPageState extends State<BookingPage> {
   HariController hari = Get.put(HariController());
   CekuserController cek = Get.put(CekuserController());
+  JamController jam = Get.put(JamController());
   var idLap = Get.arguments[0];
   String? _selectHari;
 
@@ -102,9 +104,11 @@ class _BookingPageState extends State<BookingPage> {
                               )
                             : InkWell(
                                 onTap: () => setState(() {
-                                  _selectHari = hari.hari[index].tanggal;
+                                  _selectHari = hari.hari[index].idHari;
                                   _radioValue = index;
                                   print(_selectHari);
+                                  jam.getJam(
+                                      idLap.toString(), _selectHari.toString());
                                 }),
                                 child: Padding(
                                     padding: const EdgeInsets.only(
@@ -212,38 +216,85 @@ class _BookingPageState extends State<BookingPage> {
             Expanded(
               child: Container(
                 padding: EdgeInsets.only(left: 10, right: 10, top: 15),
-                child: Obx((){
-                  if(){}
-                  return GridView.builder(
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          childAspectRatio: MediaQuery.of(context).size.width /
-                              (MediaQuery.of(context).size.height / 4.2),
-                          crossAxisCount: 4),
-                      itemCount: 8,
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding:
-                              const EdgeInsets.only(left: 5, right: 5, bottom: 5),
-                          child: SizedBox(
-                            width: 50,
-                            child: Container(
-                              alignment: Alignment.center,
-                              padding: EdgeInsets.only(left: 5, right: 5),
-                              decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color: primaryColorDark, width: 1),
-                                  borderRadius: BorderRadius.circular(7)),
-                              child: Text(
-                                '13.00',
-                                textAlign: TextAlign.center,
+                child: Obx(() {
+                  if (jam.jam.isEmpty) {
+                    return Center(
+                      child: Column(
+                        children: const [
+                          SizedBox(
+                            height: 70,
+                          ),
+                          Icon(
+                            Icons.notifications_active_sharp,
+                            size: 30,
+                          ),
+                          Text('Silahkan Pilih Hari')
+                        ],
+                      ),
+                    );
+                  }
+                  if (jam.isLoading.value) {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  } else {
+                    return GridView.builder(
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            childAspectRatio:
+                                MediaQuery.of(context).size.width /
+                                    (MediaQuery.of(context).size.height / 4.2),
+                            crossAxisCount: 4),
+                        itemCount: jam.jam.length,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.only(
+                                left: 5, right: 5, bottom: 5),
+                            child: SizedBox(
+                              width: 50,
+                              child: Container(
+                                alignment: Alignment.center,
+                                padding: EdgeInsets.only(left: 5, right: 5),
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: primaryColorDark, width: 1),
+                                    borderRadius: BorderRadius.circular(7)),
+                                child: Text(
+                                  jam.jam[index].jam!,
+                                  textAlign: TextAlign.center,
+                                ),
                               ),
                             ),
-                          ),
-                        );
-                      });
-               } ),
+                          );
+                        });
+                  }
+                }),
               ),
-            )
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 15, right: 15),
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: 50,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 5, bottom: 10),
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12)),
+                        primary: primaryColorDark,
+                        onPrimary: Colors.white, // foreground
+                      ),
+                      onPressed: () {},
+                      child: Text(
+                        'Pesan',
+                        style: GoogleFonts.poppins(
+                            textStyle: TextStyle(
+                          fontSize: 15,
+                        )),
+                      )),
+                ),
+              ),
+            ),
           ],
         ),
       ),

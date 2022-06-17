@@ -170,6 +170,7 @@ class ApiService extends GetConnect {
     var url = Uri.parse('$BASE_URL/getjamuser');
     dynamic body = ({"idfutsaljadwal": idfutsal, "idhari": idhari});
     final response = await http.post(url, body: jsonEncode(body));
+    print(body);
     print(response.body);
     if (response.statusCode == 200) {
       var produk = jamFromJson(response.body);
