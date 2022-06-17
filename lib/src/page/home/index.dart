@@ -34,6 +34,7 @@ class _FutsalHomePageState extends State<FutsalHomePage> {
           return <Widget>[
             SliverToBoxAdapter(
               child: Container(
+                color: Colors.white,
                 padding: EdgeInsets.only(left: 30, top: 50),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,45 +43,62 @@ class _FutsalHomePageState extends State<FutsalHomePage> {
                       logoFutsal,
                       height: 75,
                     ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Obx(() {
-                      if (cek.isLoading.value) {
-                        return Center(
-                          child: CircularProgressIndicator(),
-                        );
-                      } else {
-                        return Text('Hello ${cek.cek.value.username}',
-                            style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: primaryColorDark,
-                                    fontSize: 26)));
-                      }
-                    }),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text('Pilih Lapangan',
-                        style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                              fontSize: 17, fontWeight: FontWeight.w600),
-                        ))
                   ],
                 ),
+              ),
+            ),
+            SliverAppBar(
+              pinned: true,
+              floating: true,
+              expandedHeight: 50,
+              centerTitle: true,
+              elevation: 0,
+              shadowColor: Colors.white,
+              backgroundColor: Colors.white,
+              foregroundColor: Colors.white,
+              bottom: AppBar(
+                toolbarHeight: 52,
+                backgroundColor: Colors.white,
+                elevation: 0,
+                title: Container(
+                  padding: const EdgeInsets.only(left: 20, right: 20),
+                  child: Obx(() {
+                    if (cek.isLoading.value) {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    } else {
+                      return Text('Hello ${cek.cek.value.username}',
+                          style: GoogleFonts.poppins(
+                              textStyle: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: primaryColorDark,
+                                  fontSize: 26)));
+                    }
+                  }),
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.only(left: 40, right: 20, top: 10),
+                child: Text('Pilih Lapangan',
+                    style: GoogleFonts.poppins(
+                      textStyle: const TextStyle(
+                          fontSize: 17, fontWeight: FontWeight.w600),
+                    )),
               ),
             )
           ];
         },
         body: Container(
           height: MediaQuery.of(context).size.height * 0.8,
-          padding: EdgeInsets.only(bottom: 0),
+          padding: const EdgeInsets.only(bottom: 0),
           child: Container(
               padding: EdgeInsets.all(10.0),
               child: Obx(() {
                 if (lap.isLoading.value) {
-                  return Center(
+                  return const Center(
                     child: CircularProgressIndicator(),
                   );
                 } else {
@@ -110,6 +128,7 @@ class _FutsalHomePageState extends State<FutsalHomePage> {
                                           child: Image.network(
                                             BASE_URL_IMAGE_LAP +
                                                 "/${lap.lap[index].foto}",
+                                            fit: BoxFit.fill,
                                             height: 120,
                                           ),
                                         ),

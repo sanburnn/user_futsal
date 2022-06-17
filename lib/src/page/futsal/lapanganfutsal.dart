@@ -189,7 +189,7 @@ class _LapanganFutsalState extends State<LapanganFutsal> {
                     nama,
                     style: GoogleFonts.poppins(
                         textStyle: TextStyle(
-                            fontSize: 15, fontWeight: FontWeight.w500)),
+                            fontSize: 17, fontWeight: FontWeight.w500)),
                   ),
                   SizedBox(
                     height: 5,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:user_futsal/src/controller/cekuser_controller.dart';
 import 'package:user_futsal/src/prefs/prefrences.dart';
 import 'package:user_futsal/src/router/constant.dart';
 import 'package:user_futsal/src/services/themes.dart';
@@ -13,6 +14,15 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  CekuserController cek = Get.put(CekuserController());
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    cek.cekUser();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,17 +39,73 @@ class _ProfilePageState extends State<ProfilePage> {
         ),
       ),
       body: Container(
-        child: ListView(
+        child: Stack(
           children: [
-            Container(
-              height: 100,
-              color: primaryColorDark,
+            Obx(() {
+              if (cek.isLoading.value) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else {
+                return Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 100,
+                  color: primaryColorDark,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10, top: 10),
+                        child: Text(
+                          cek.cek.value.nama!,
+                          style: GoogleFonts.poppins(
+                            textStyle: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                        child: Text(
+                          '+ ${cek.cek.value.notelp}',
+                          style: GoogleFonts.poppins(
+                            textStyle: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w300),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              }
+            }),
+            Positioned(
+              top: 80,
+              left: 80,
+              child: Container(
+                decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey,
+                        blurRadius: 3.0,
+                        spreadRadius: 0.5,
+                        offset:
+                            Offset(2.0, 2.0), // shadow direction: bottom right
+                      )
+                    ],
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(13)),
+                width: 250,
+                height: 60,
+                padding: EdgeInsets.only(left: 10, right: 10),
+              ),
             ),
             SizedBox(
               height: 20,
-            ),
-            Stack(
-              children: [],
             ),
             Center(
               child: Container(
