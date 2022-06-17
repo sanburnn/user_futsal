@@ -23,7 +23,31 @@ class _BookingPageState extends State<BookingPage> {
                   TextStyle(fontWeight: FontWeight.w500, color: Colors.black)),
         ),
       ),
-      body: Container(),
+      body: Container(
+        child: Column(
+          children: [
+            Container(
+              padding: EdgeInsets.only(top: 20),
+              height: 80,
+              child: ListView.builder(
+                  physics: BouncingScrollPhysics(),
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 10,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.only(left: 15, right: 15),
+                      child: Container(
+                        color: primaryGreyDark,
+                        width: 50,
+                        height: 80,
+                        child: Text('data'),
+                      ),
+                    );
+                  }),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
