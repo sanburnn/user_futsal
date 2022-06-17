@@ -21,6 +21,8 @@ class _BookingPageState extends State<BookingPage> {
   String? _selectHari;
 
   int? _radioValue = -1;
+  bool isSelected = false;
+  List selectedJam = [];
   @override
   void initState() {
     // TODO: implement initState
@@ -47,6 +49,8 @@ class _BookingPageState extends State<BookingPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
+              width: MediaQuery.of(context).size.width,
+              color: Colors.grey.shade200,
               padding: EdgeInsets.only(top: 20, left: 15),
               child: Text(
                 'Jadwal',
@@ -57,7 +61,9 @@ class _BookingPageState extends State<BookingPage> {
               ),
             ),
             Container(
+              width: MediaQuery.of(context).size.width,
               padding: EdgeInsets.only(top: 5, left: 15),
+              color: Colors.grey.shade200,
               child: Text(
                 'Pilih hari untuk mengetahui jam',
                 style: GoogleFonts.poppins(
@@ -68,6 +74,7 @@ class _BookingPageState extends State<BookingPage> {
             Container(
               padding: EdgeInsets.only(top: 20),
               height: 80,
+              color: Colors.grey.shade200,
               child: Obx(() {
                 if (hari.isLoading.value) {
                   return const Center(
@@ -97,7 +104,7 @@ class _BookingPageState extends State<BookingPage> {
                                       textStyle: TextStyle(
                                           color: Colors.black38,
                                           fontSize: 15,
-                                          fontWeight: FontWeight.w500),
+                                          fontWeight: FontWeight.w400),
                                     ),
                                   ),
                                 ),
@@ -165,9 +172,11 @@ class _BookingPageState extends State<BookingPage> {
               }),
             ),
             Container(
+              width: MediaQuery.of(context).size.width,
               padding: EdgeInsets.only(left: 15, right: 15, top: 15),
+              color: Colors.grey.shade200,
               child: Text(
-                'Pilih Jam',
+                'Pilih Jam Mulai dan Jam Selesai',
                 style: GoogleFonts.poppins(
                     textStyle: const TextStyle(
                         fontWeight: FontWeight.w500, fontSize: 15)),
@@ -175,6 +184,12 @@ class _BookingPageState extends State<BookingPage> {
             ),
             Container(
               padding: EdgeInsets.only(left: 15, right: 15, top: 10),
+              decoration: BoxDecoration(
+                color: Colors.grey.shade200,
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(18),
+                    bottomRight: Radius.circular(18)),
+              ),
               child: Row(
                 children: [
                   Container(
