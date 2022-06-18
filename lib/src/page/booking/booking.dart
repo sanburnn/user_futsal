@@ -19,6 +19,7 @@ class _BookingPageState extends State<BookingPage> {
   JamController jam = Get.put(JamController());
   var idLap = Get.arguments[0];
   String? _selectHari;
+  String? valueHari;
 
   int? _radioValue = -1;
   bool isSelected = false;
@@ -52,12 +53,12 @@ class _BookingPageState extends State<BookingPage> {
             Container(
               width: MediaQuery.of(context).size.width,
               color: Colors.grey.shade200,
-              padding: EdgeInsets.only(top: 20, left: 15),
+              padding: const EdgeInsets.only(top: 20, left: 15),
               child: Text(
                 'Jadwal',
                 style: GoogleFonts.poppins(
-                  textStyle:
-                      TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
+                  textStyle: const TextStyle(
+                      fontWeight: FontWeight.w600, fontSize: 17),
                 ),
               ),
             ),
@@ -68,12 +69,12 @@ class _BookingPageState extends State<BookingPage> {
               child: Text(
                 'Pilih hari untuk mengetahui jam',
                 style: GoogleFonts.poppins(
-                  textStyle: TextStyle(fontSize: 15),
+                  textStyle: const TextStyle(fontSize: 15),
                 ),
               ),
             ),
             Container(
-              padding: EdgeInsets.only(top: 20),
+              padding: const EdgeInsets.only(top: 20),
               height: 80,
               color: Colors.grey.shade200,
               child: Obx(() {
@@ -83,7 +84,7 @@ class _BookingPageState extends State<BookingPage> {
                   );
                 } else {
                   return ListView.builder(
-                      physics: BouncingScrollPhysics(),
+                      physics: const BouncingScrollPhysics(),
                       scrollDirection: Axis.horizontal,
                       itemCount: hari.hari.length + 1,
                       itemBuilder: (context, index) {
@@ -102,7 +103,7 @@ class _BookingPageState extends State<BookingPage> {
                                     'Not Ready Yet',
                                     textAlign: TextAlign.center,
                                     style: GoogleFonts.poppins(
-                                      textStyle: TextStyle(
+                                      textStyle: const TextStyle(
                                           color: Colors.black38,
                                           fontSize: 15,
                                           fontWeight: FontWeight.w400),
@@ -113,9 +114,11 @@ class _BookingPageState extends State<BookingPage> {
                             : InkWell(
                                 onTap: () => setState(() {
                                   _selectHari = hari.hari[index].idHari;
+                                  valueHari = hari.hari[index].tanggal;
                                   _radioValue = index;
                                   selectedJam.clear();
                                   print(_selectHari);
+                                  print(valueHari);
                                   jam.getJam(
                                       idLap.toString(), _selectHari.toString());
                                 }),
@@ -138,7 +141,7 @@ class _BookingPageState extends State<BookingPage> {
                                               hari.hari[index].tanggal!,
                                               textAlign: TextAlign.center,
                                               style: GoogleFonts.poppins(
-                                                textStyle: TextStyle(
+                                                textStyle: const TextStyle(
                                                     color: Colors.white,
                                                     fontSize: 15,
                                                     fontWeight:
@@ -161,7 +164,7 @@ class _BookingPageState extends State<BookingPage> {
                                               hari.hari[index].tanggal!,
                                               textAlign: TextAlign.center,
                                               style: GoogleFonts.poppins(
-                                                textStyle: TextStyle(
+                                                textStyle: const TextStyle(
                                                     fontSize: 15,
                                                     fontWeight:
                                                         FontWeight.w500),
@@ -175,7 +178,7 @@ class _BookingPageState extends State<BookingPage> {
             ),
             Container(
               width: MediaQuery.of(context).size.width,
-              padding: EdgeInsets.only(left: 15, right: 15, top: 15),
+              padding: const EdgeInsets.only(left: 15, right: 15, top: 15),
               color: Colors.grey.shade200,
               child: Text(
                 'Pilih Jam Mulai dan Jam Selesai',
@@ -188,7 +191,7 @@ class _BookingPageState extends State<BookingPage> {
               padding: EdgeInsets.only(left: 15, right: 15, top: 10),
               decoration: BoxDecoration(
                 color: Colors.grey.shade200,
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(18),
                     bottomRight: Radius.circular(18)),
               ),
@@ -201,7 +204,7 @@ class _BookingPageState extends State<BookingPage> {
                     width: 17,
                     height: 17,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 5,
                   ),
                   Text(
@@ -209,7 +212,7 @@ class _BookingPageState extends State<BookingPage> {
                     style:
                         GoogleFonts.poppins(textStyle: TextStyle(fontSize: 14)),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 7,
                   ),
                   Container(
@@ -219,7 +222,7 @@ class _BookingPageState extends State<BookingPage> {
                     width: 17,
                     height: 17,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 7,
                   ),
                   Text(
