@@ -23,6 +23,7 @@ class _BookingPageState extends State<BookingPage> {
   int? _radioValue = -1;
   bool isSelected = false;
   List selectedJam = [];
+  bool isTapped = true;
   @override
   void initState() {
     // TODO: implement initState
@@ -113,6 +114,7 @@ class _BookingPageState extends State<BookingPage> {
                                 onTap: () => setState(() {
                                   _selectHari = hari.hari[index].idHari;
                                   _radioValue = index;
+                                  selectedJam.clear();
                                   print(_selectHari);
                                   jam.getJam(
                                       idLap.toString(), _selectHari.toString());
@@ -261,25 +263,65 @@ class _BookingPageState extends State<BookingPage> {
                             crossAxisCount: 4),
                         itemCount: jam.jam.length,
                         itemBuilder: (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.only(
-                                left: 5, right: 5, bottom: 5),
-                            child: SizedBox(
-                              width: 50,
-                              child: Container(
-                                alignment: Alignment.center,
-                                padding: EdgeInsets.only(left: 5, right: 5),
-                                decoration: BoxDecoration(
-                                    border: Border.all(
-                                        color: primaryColorDark, width: 1),
-                                    borderRadius: BorderRadius.circular(7)),
-                                child: Text(
-                                  jam.jam[index].jam!,
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
-                            ),
-                          );
+                          return InkWell(
+                              onTap: () {
+                                setState(() {
+                                  if (selectedJam
+                                      .contains(jam.jam[index].jam)) {
+                                    selectedJam.remove(jam.jam[index].jam);
+                                  } else {
+                                    selectedJam.add(jam.jam[index].jam);
+                                  }
+
+                                  isTapped = !isTapped;
+                                  print(selectedJam);
+                                });
+                              },
+                              child: selectedJam.contains(jam.jam[index].jam)
+                                  ? Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 5, right: 5, bottom: 5),
+                                      child: SizedBox(
+                                        width: 50,
+                                        child: Container(
+                                          alignment: Alignment.center,
+                                          padding: const EdgeInsets.only(
+                                              left: 5, right: 5),
+                                          decoration: BoxDecoration(
+                                              color: primaryColorDark,
+                                              borderRadius:
+                                                  BorderRadius.circular(7)),
+                                          child: Text(
+                                            jam.jam[index].jam!,
+                                            style:
+                                                TextStyle(color: Colors.white),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                        ),
+                                      ),
+                                    )
+                                  : Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 5, right: 5, bottom: 5),
+                                      child: SizedBox(
+                                        width: 50,
+                                        child: Container(
+                                          alignment: Alignment.center,
+                                          padding: EdgeInsets.only(
+                                              left: 5, right: 5),
+                                          decoration: BoxDecoration(
+                                              border: Border.all(
+                                                  color: primaryColorDark,
+                                                  width: 1),
+                                              borderRadius:
+                                                  BorderRadius.circular(7)),
+                                          child: Text(
+                                            jam.jam[index].jam!,
+                                            textAlign: TextAlign.center,
+                                          ),
+                                        ),
+                                      ),
+                                    ));
                         });
                   }
                 }),
@@ -299,7 +341,14 @@ class _BookingPageState extends State<BookingPage> {
                         primary: primaryColorDark,
                         onPrimary: Colors.white, // foreground
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        if (selectedJam.length < 2) {
+                          print(' Kurang ajg');
+                        } else {
+                          print('pas suh');
+                          print(' ${selectedJam.first} - ${selectedJam.last}');
+                        }
+                      },
                       child: Text(
                         'Pesan',
                         style: GoogleFonts.poppins(
