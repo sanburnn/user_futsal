@@ -293,8 +293,8 @@ class _BookingPageState extends State<BookingPage> {
                                                   BorderRadius.circular(7)),
                                           child: Text(
                                             jam.jam[index].jam!,
-                                            style:
-                                                TextStyle(color: Colors.white),
+                                            style: const TextStyle(
+                                                color: Colors.white),
                                             textAlign: TextAlign.center,
                                           ),
                                         ),
@@ -307,7 +307,7 @@ class _BookingPageState extends State<BookingPage> {
                                         width: 50,
                                         child: Container(
                                           alignment: Alignment.center,
-                                          padding: EdgeInsets.only(
+                                          padding: const EdgeInsets.only(
                                               left: 5, right: 5),
                                           decoration: BoxDecoration(
                                               border: Border.all(
