@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:user_futsal/src/controller/cekuser_controller.dart';
 import 'package:user_futsal/src/controller/hari_controller.dart';
 import 'package:user_futsal/src/controller/jam_controller.dart';
+import 'package:user_futsal/src/router/constant.dart';
 import 'package:user_futsal/src/services/themes.dart';
 
 class BookingPage extends StatefulWidget {
@@ -18,6 +19,10 @@ class _BookingPageState extends State<BookingPage> {
   CekuserController cek = Get.put(CekuserController());
   JamController jam = Get.put(JamController());
   var idLap = Get.arguments[0];
+  var nama = Get.arguments[1];
+  var foto = Get.arguments[2];
+  var alamat = Get.arguments[3];
+  var notelp = Get.arguments[4];
   String? _selectHari;
   String? valueHari;
 
@@ -350,6 +355,8 @@ class _BookingPageState extends State<BookingPage> {
                         } else {
                           print('pas suh');
                           print(' ${selectedJam.first} - ${selectedJam.last}');
+                          Get.toNamed(ringkasanRoute,
+                              arguments: [foto, nama, alamat, notelp]);
                         }
                       },
                       child: Text(
