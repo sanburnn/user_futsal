@@ -4,6 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:user_futsal/src/config/env.dart';
 import 'package:user_futsal/src/services/themes.dart';
 
+enum SingingCharacter { cod, trf }
+
 class RingkasanPage extends StatefulWidget {
   RingkasanPage({Key? key}) : super(key: key);
 
@@ -20,6 +22,10 @@ class _RingkasanPageState extends State<RingkasanPage> {
   var jamAkhir = Get.arguments[5];
   var harga = Get.arguments[6];
   var totaljam = Get.arguments[7];
+  int? _selectedValueIndex;
+  List<String> buttonText = ["cod", "trf"];
+  SingingCharacter? _character = SingingCharacter.cod;
+  String? _radioValue;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -137,7 +143,8 @@ class _RingkasanPageState extends State<RingkasanPage> {
                   ),
                   Text(
                     'Rp. ${harga * (totaljam.length - 1)} ',
-                    style: GoogleFonts.openSans(fontSize: 16),
+                    style: GoogleFonts.openSans(
+                        fontWeight: FontWeight.w500, fontSize: 16),
                   ),
                 ],
               ),
@@ -156,6 +163,153 @@ class _RingkasanPageState extends State<RingkasanPage> {
                 style: GoogleFonts.poppins(
                   textStyle: const TextStyle(
                       fontSize: 16, fontWeight: FontWeight.w500),
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 10, top: 5),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  SizedBox(
+                    height: 45,
+                    child: RadioListTile(
+                      activeColor: primaryColorDark,
+                      title: const Text('COD Bayar Ditempat'),
+                      value: buttonText[0],
+                      groupValue: _radioValue,
+                      onChanged: (value) {
+                        setState(() {
+                          _radioValue = value as String;
+                          print(_radioValue);
+                        });
+                      },
+                    ),
+                  ),
+                  SizedBox(
+                    height: 40,
+                    child: RadioListTile(
+                      activeColor: primaryColorDark,
+                      title: const Text('Transfer DP'),
+                      value: buttonText[1],
+                      groupValue: _radioValue,
+                      onChanged: (value) {
+                        setState(() {
+                          _radioValue = value as String?;
+                          print(_radioValue);
+                        });
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              height: 2,
+              color: Colors.grey.shade300,
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 30, top: 10),
+              child: Row(
+                children: [
+                  Text(
+                    '*',
+                    style: TextStyle(
+                      fontSize: 17,
+                      color: Colors.red,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    'Teliti dahulu sebelum memesan lapangan atau melakukan\n transaksi',
+                    style: TextStyle(fontSize: 12, color: Colors.red),
+                  )
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 30, top: 5),
+              child: Row(
+                children: [
+                  Text(
+                    '**',
+                    style: TextStyle(
+                      fontSize: 17,
+                      color: Colors.red,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Text(
+                    'Pemilihan Jam Harus Sesuai, jika tidak sesuai transaksi akan\n di cancel dan lakukan pemesanan ulang kembali',
+                    style: TextStyle(fontSize: 12, color: Colors.red),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 60,
+            ),
+            Container(
+              height: 2,
+              color: Colors.grey.shade300,
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 15, right: 15, top: 5),
+              child: Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Total Bayar',
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                            fontSize: 17, fontWeight: FontWeight.w500),
+                      ),
+                    ),
+                    Text(
+                      'Rp. ${harga * (totaljam.length - 1)} ',
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 17,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 15, right: 15, top: 5),
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: 50,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 5, bottom: 10),
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12)),
+                        primary: primaryColorDark,
+                        onPrimary: Colors.white, // foreground
+                      ),
+                      onPressed: () {},
+                      child: Text(
+                        'Pesan',
+                        style: GoogleFonts.poppins(
+                            textStyle: TextStyle(
+                          fontSize: 15,
+                        )),
+                      )),
                 ),
               ),
             ),
