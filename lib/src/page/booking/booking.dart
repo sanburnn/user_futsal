@@ -23,13 +23,17 @@ class _BookingPageState extends State<BookingPage> {
   var foto = Get.arguments[2];
   var alamat = Get.arguments[3];
   var notelp = Get.arguments[4];
+  var harga = Get.arguments[5];
   String? _selectHari;
   String? valueHari;
-
+  List numlist = [1, 2, 3];
   int? _radioValue = -1;
   bool isSelected = false;
   List selectedJam = [];
   bool isTapped = true;
+  //*===========range=====
+
+  //*=====================
   @override
   void initState() {
     // TODO: implement initState
@@ -271,68 +275,127 @@ class _BookingPageState extends State<BookingPage> {
                             crossAxisCount: 4),
                         itemCount: jam.jam.length,
                         itemBuilder: (context, index) {
-                          return InkWell(
-                              onTap: () {
-                                setState(() {
-                                  if (selectedJam
-                                      .contains(jam.jam[index].jam)) {
-                                    selectedJam.remove(jam.jam[index].jam);
-                                  } else {
-                                    selectedJam.add(jam.jam[index].jam);
-                                  }
+                          return jam.jam[index].satatus == 'ready'
+                              ? InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      if (selectedJam
+                                          .contains(jam.jam[index].jam)) {
+                                        selectedJam.remove(jam.jam[index].jam);
+                                      } else {
+                                        selectedJam.add(jam.jam[index].jam);
+                                      }
 
-                                  isTapped = !isTapped;
-                                  print(selectedJam);
-                                });
-                              },
-                              child: selectedJam.contains(jam.jam[index].jam)
-                                  ? Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 5, right: 5, bottom: 5),
-                                      child: SizedBox(
-                                        width: 50,
-                                        child: Container(
-                                          alignment: Alignment.center,
+                                      isTapped = !isTapped;
+                                      print(selectedJam);
+                                    });
+                                  },
+                                  child: selectedJam
+                                          .contains(jam.jam[index].jam)
+                                      ? Padding(
                                           padding: const EdgeInsets.only(
-                                              left: 5, right: 5),
-                                          decoration: BoxDecoration(
-                                              color: primaryColorDark,
-                                              borderRadius:
-                                                  BorderRadius.circular(7)),
-                                          child: Text(
-                                            jam.jam[index].jam!,
-                                            style: const TextStyle(
-                                                color: Colors.white),
-                                            textAlign: TextAlign.center,
-                                          ),
-                                        ),
-                                      ),
-                                    )
-                                  : Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 5, right: 5, bottom: 5),
-                                      child: SizedBox(
-                                        width: 50,
-                                        child: Container(
-                                          alignment: Alignment.center,
-                                          padding: const EdgeInsets.only(
-                                              left: 5, right: 5),
-                                          decoration: BoxDecoration(
-                                              border: Border.all(
+                                              left: 5, right: 5, bottom: 5),
+                                          child: SizedBox(
+                                            width: 50,
+                                            child: Container(
+                                              alignment: Alignment.center,
+                                              padding: const EdgeInsets.only(
+                                                  left: 5, right: 5),
+                                              decoration: BoxDecoration(
                                                   color: primaryColorDark,
-                                                  width: 1),
-                                              borderRadius:
-                                                  BorderRadius.circular(7)),
-                                          child: Text(
-                                            jam.jam[index].jam!,
-                                            textAlign: TextAlign.center,
+                                                  borderRadius:
+                                                      BorderRadius.circular(7)),
+                                              child: Text(
+                                                jam.jam[index].jam!,
+                                                style: const TextStyle(
+                                                    color: Colors.white),
+                                                textAlign: TextAlign.center,
+                                              ),
+                                            ),
                                           ),
-                                        ),
+                                        )
+                                      : Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 5, right: 5, bottom: 5),
+                                          child: SizedBox(
+                                            width: 50,
+                                            child: Container(
+                                              alignment: Alignment.center,
+                                              padding: const EdgeInsets.only(
+                                                  left: 5, right: 5),
+                                              decoration: BoxDecoration(
+                                                  border: Border.all(
+                                                      color: primaryColorDark,
+                                                      width: 1),
+                                                  borderRadius:
+                                                      BorderRadius.circular(7)),
+                                              child: Text(
+                                                jam.jam[index].jam!,
+                                                textAlign: TextAlign.center,
+                                              ),
+                                            ),
+                                          ),
+                                        ))
+                              : Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 5, right: 5, bottom: 5),
+                                  child: SizedBox(
+                                    width: 50,
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      padding: const EdgeInsets.only(
+                                          left: 5, right: 5),
+                                      decoration: BoxDecoration(
+                                          color: Colors.grey.shade300,
+                                          borderRadius:
+                                              BorderRadius.circular(7)),
+                                      child: Text(
+                                        jam.jam[index].jam!,
+                                        style: const TextStyle(
+                                            color: Colors.black38),
+                                        textAlign: TextAlign.center,
                                       ),
-                                    ));
+                                    ),
+                                  ),
+                                );
                         });
                   }
                 }),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 15, right: 15),
+              child: Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Total Harga',
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                            fontSize: 17, fontWeight: FontWeight.w500),
+                      ),
+                    ),
+                    selectedJam.isEmpty
+                        ? Text(
+                            'Rp.  ',
+                            style: GoogleFonts.poppins(
+                              textStyle: TextStyle(
+                                fontSize: 17,
+                              ),
+                            ),
+                          )
+                        : Text(
+                            'Rp. ${harga * (selectedJam.length - 1)} ',
+                            style: GoogleFonts.poppins(
+                              textStyle: TextStyle(
+                                fontSize: 17,
+                              ),
+                            ),
+                          )
+                  ],
+                ),
               ),
             ),
             Padding(
@@ -350,13 +413,25 @@ class _BookingPageState extends State<BookingPage> {
                         onPrimary: Colors.white, // foreground
                       ),
                       onPressed: () {
+                        final total = selectedJam.length;
+
+                        print(total.isOdd ? "ganjil" : "genap");
+
                         if (selectedJam.length < 2) {
                           print(' Kurang ajg');
                         } else {
                           print('pas suh');
                           print(' ${selectedJam.first} - ${selectedJam.last}');
-                          Get.toNamed(ringkasanRoute,
-                              arguments: [foto, nama, alamat, notelp]);
+                          Get.toNamed(ringkasanRoute, arguments: [
+                            foto,
+                            nama,
+                            alamat,
+                            notelp,
+                            selectedJam.first,
+                            selectedJam.last,
+                            harga,
+                            selectedJam
+                          ]);
                         }
                       },
                       child: Text(

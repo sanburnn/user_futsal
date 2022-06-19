@@ -238,8 +238,14 @@ class _LapanganFutsalState extends State<LapanganFutsal> {
                         primary: primaryColorDark,
                         onPrimary: Colors.white, // foreground
                       ),
-                      onPressed: () => Get.toNamed(bookingRoute,
-                          arguments: [idLap, nama, foto, alamat, notelp]),
+                      onPressed: () => Get.toNamed(bookingRoute, arguments: [
+                            idLap,
+                            nama,
+                            foto,
+                            alamat,
+                            notelp,
+                            harga
+                          ]),
                       child: Text(
                         'Booking Lapangan',
                         style: GoogleFonts.poppins(
