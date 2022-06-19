@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:user_futsal/src/config/env.dart';
+import 'package:user_futsal/src/controller/createTrx_controller.dart';
+import 'package:user_futsal/src/router/constant.dart';
 import 'package:user_futsal/src/services/themes.dart';
 
 enum SingingCharacter { cod, trf }
@@ -22,9 +24,9 @@ class _RingkasanPageState extends State<RingkasanPage> {
   var jamAkhir = Get.arguments[5];
   var harga = Get.arguments[6];
   var totaljam = Get.arguments[7];
-  int? _selectedValueIndex;
+
   List<String> buttonText = ["cod", "trf"];
-  SingingCharacter? _character = SingingCharacter.cod;
+  CreateTrxController order = Get.put(CreateTrxController());
   String? _radioValue;
   @override
   Widget build(BuildContext context) {
@@ -302,7 +304,19 @@ class _RingkasanPageState extends State<RingkasanPage> {
                         primary: primaryColorDark,
                         onPrimary: Colors.white, // foreground
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        if (_radioValue != null) {
+                          if (_radioValue == 'cod') {
+                            Get.offAndToNamed(codRoute);
+                          } else {
+                            Get.offAndToNamed(suksesRoute);
+                          }
+                        } else {
+                          Get.rawSnackbar(
+                              message: "Pilih Salah Satu Metode Pembayaran",
+                              margin: EdgeInsets.only(bottom: 30));
+                        }
+                      },
                       child: Text(
                         'Pesan',
                         style: GoogleFonts.poppins(

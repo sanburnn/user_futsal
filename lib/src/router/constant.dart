@@ -7,3 +7,5 @@ const String pertandinganRoute = '/pertandingan';
 const String registerRoute = '/register';
 const String bookingRoute = '/booking';
 const String ringkasanRoute = '/ringkasan';
+const String codRoute = '/Cod';
+const String suksesRoute = '/sukses';
