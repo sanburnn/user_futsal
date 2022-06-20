@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:user_futsal/src/config/env.dart';
+import 'package:user_futsal/src/controller/cekuser_controller.dart';
 import 'package:user_futsal/src/controller/createTrx_controller.dart';
 import 'package:user_futsal/src/router/constant.dart';
 import 'package:user_futsal/src/services/themes.dart';
@@ -24,10 +25,14 @@ class _RingkasanPageState extends State<RingkasanPage> {
   var jamAkhir = Get.arguments[5];
   var harga = Get.arguments[6];
   var totaljam = Get.arguments[7];
-
+  var rekening = Get.arguments[8];
+  var idLap = Get.arguments[9];
+  var tanggal = Get.arguments[10];
   List<String> buttonText = ["cod", "trf"];
   CreateTrxController order = Get.put(CreateTrxController());
+  CekuserController cek = Get.put(CekuserController());
   String? _radioValue;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -309,7 +314,16 @@ class _RingkasanPageState extends State<RingkasanPage> {
                           if (_radioValue == 'cod') {
                             Get.offAndToNamed(codRoute);
                           } else {
-                            Get.offAndToNamed(suksesRoute);
+                            order.createTrx(
+                                idLap.toString(),
+                                cek.cek.value.idPengguna!,
+                                cek.cek.value.nama!,
+                                notelp.toString(),
+                                '${jamMulai} - ${jamAkhir}',
+                                tanggal,
+                                'trfpending');
+                            Get.offAndToNamed(suksesRoute,
+                                arguments: [rekening]);
                           }
                         } else {
                           Get.rawSnackbar(

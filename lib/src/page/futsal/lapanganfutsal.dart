@@ -21,6 +21,8 @@ class _LapanganFutsalState extends State<LapanganFutsal> {
   var alamat = Get.arguments[4];
   var notelp = Get.arguments[5];
   var harga = Get.arguments[6];
+  var rekening = Get.arguments[7];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -244,7 +246,8 @@ class _LapanganFutsalState extends State<LapanganFutsal> {
                             foto,
                             alamat,
                             notelp,
-                            harga
+                            harga,
+                            rekening
                           ]),
                       child: Text(
                         'Booking Lapangan',

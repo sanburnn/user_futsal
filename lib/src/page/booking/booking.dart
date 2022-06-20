@@ -24,6 +24,7 @@ class _BookingPageState extends State<BookingPage> {
   var alamat = Get.arguments[3];
   var notelp = Get.arguments[4];
   var harga = Get.arguments[5];
+  var rekening = Get.arguments[6];
   String? _selectHari;
   String? valueHari;
   List numlist = [1, 2, 3];
@@ -421,6 +422,7 @@ class _BookingPageState extends State<BookingPage> {
                           print(' Kurang ajg');
                         } else {
                           print('pas suh');
+                          print(rekening);
                           print(' ${selectedJam.first} - ${selectedJam.last}');
                           Get.toNamed(ringkasanRoute, arguments: [
                             foto,
@@ -430,7 +432,10 @@ class _BookingPageState extends State<BookingPage> {
                             selectedJam.first,
                             selectedJam.last,
                             harga,
-                            selectedJam
+                            selectedJam,
+                            rekening,
+                            idLap,
+                            valueHari
                           ]);
                         }
                       },

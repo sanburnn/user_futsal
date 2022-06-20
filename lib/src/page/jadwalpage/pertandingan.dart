@@ -85,27 +85,28 @@ class PertandinganPageState extends State<PertandinganPage> {
                                 )),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 8,
                             ),
                             Padding(
-                              padding: EdgeInsets.only(left: 10),
+                              padding: const EdgeInsets.only(left: 10),
                               child: Text('Jam ${tanding.per[index].jam}',
                                   style: GoogleFonts.poppins(
-                                      textStyle: TextStyle(fontSize: 15))),
+                                      textStyle:
+                                          const TextStyle(fontSize: 15))),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 8,
                             ),
                             Padding(
-                              padding: EdgeInsets.only(left: 10),
+                              padding: const EdgeInsets.only(left: 10),
                               child: Text(
                                 'Tanggal ${tanding.per[index].tanggal}',
                                 style: GoogleFonts.poppins(
-                                    textStyle: TextStyle(fontSize: 15)),
+                                    textStyle: const TextStyle(fontSize: 15)),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 8,
                             )
                           ],

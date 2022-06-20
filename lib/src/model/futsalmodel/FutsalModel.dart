@@ -39,6 +39,7 @@ class Futsal {
   int? notelp;
   String? alamat;
   int? harga;
+  String? rekening;
 
   Futsal(
       {this.idFutsal,
@@ -47,7 +48,8 @@ class Futsal {
       this.deskripsi,
       this.notelp,
       this.alamat,
-      this.harga});
+      this.harga,
+      this.rekening});
 
   Futsal.fromJson(Map<String, dynamic> json) {
     idFutsal = json['id_futsal'];
@@ -57,6 +59,7 @@ class Futsal {
     notelp = json['notelp'];
     alamat = json['alamat'];
     harga = json['harga'];
+    rekening = json['rekening'];
   }
 
   Map<String, dynamic> toJson() {
@@ -68,6 +71,7 @@ class Futsal {
     data['notelp'] = this.notelp;
     data['alamat'] = this.alamat;
     data['harga'] = this.harga;
+    data['rekening'] = this.rekening;
     return data;
   }
 }

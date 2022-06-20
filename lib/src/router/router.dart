@@ -10,6 +10,7 @@ import 'package:user_futsal/src/page/main_page.dart';
 import 'package:user_futsal/src/page/register/register.dart';
 import 'package:user_futsal/src/page/ringkasanorder/rengkasan.dart';
 import 'package:user_futsal/src/page/trfsukses/SuksesPage.dart';
+import 'package:user_futsal/src/page/uploadbukti/upload.dart';
 import 'constant.dart';
 
 final List<GetPage<dynamic>>? routes = [
@@ -23,5 +24,6 @@ final List<GetPage<dynamic>>? routes = [
   GetPage(name: bookingRoute, page: () => BookingPage()),
   GetPage(name: ringkasanRoute, page: () => RingkasanPage()),
   GetPage(name: codRoute, page: () => CodPage()),
-  GetPage(name: suksesRoute, page: () => SuksesPage())
+  GetPage(name: suksesRoute, page: () => SuksesPage()),
+  GetPage(name: buktiRoute, page: () => UploadBuktiPage())
 ];

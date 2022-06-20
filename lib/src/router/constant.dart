@@ -9,3 +9,4 @@ const String bookingRoute = '/booking';
 const String ringkasanRoute = '/ringkasan';
 const String codRoute = '/Cod';
 const String suksesRoute = '/sukses';
+const String buktiRoute = '/bukti';

@@ -15,7 +15,7 @@ class CreateTrxController extends GetxController {
     final response = await ApiService().createTransaksi(
         idfutsal, idpengguna, nama, notelp, jam, tanggal, status);
     if (response != null) {
-      Get.offAndToNamed(loginRoute);
+      Get.rawSnackbar(message: "Berhasil Memesan");
     } else {
       Get.defaultDialog(
           middleText: "Gagal Booking, Try again!",

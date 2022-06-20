@@ -201,7 +201,9 @@ class _FutsalHomePageState extends State<FutsalHomePage> {
                                                       lap.lap[index].deskripsi,
                                                       lap.lap[index].alamat,
                                                       lap.lap[index].notelp,
-                                                      lap.lap[index].harga
+                                                      lap.lap[index].harga,
+                                                      lap.lap[index].rekening ??
+                                                          ""
                                                     ]),
                                             child: Text(
                                               'Pilih',
