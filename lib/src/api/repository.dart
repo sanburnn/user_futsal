@@ -110,7 +110,7 @@ class ApiService extends GetConnect {
     }
   }
 
-  Future<List<Transaksi>?> getTransaksi(int id) async {
+  Future<List<Transaksi>?> getTransaksi(String id) async {
     var url = Uri.parse('$BASE_URL/transaksiuser/$id');
     final response = await http.get(url);
     print(response.body);

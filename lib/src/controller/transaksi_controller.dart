@@ -7,7 +7,7 @@ class TransaksiController extends GetxController {
   var isLoading = true.obs;
   var trx = <Transaksi>[].obs;
 
-  void getTransaksi(int id) async {
+  void getTransaksi(String id) async {
     try {
       isLoading(true);
       var res = await ApiService().getTransaksi(id);
