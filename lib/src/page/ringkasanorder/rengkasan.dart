@@ -70,7 +70,7 @@ class _RingkasanPageState extends State<RingkasanPage> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 13,
                   ),
                   Column(
@@ -79,7 +79,7 @@ class _RingkasanPageState extends State<RingkasanPage> {
                       Text(
                         '${nama}',
                         style: GoogleFonts.poppins(
-                            textStyle: TextStyle(
+                            textStyle: const TextStyle(
                                 fontSize: 17, fontWeight: FontWeight.w500)),
                       ),
                       SizedBox(
@@ -87,23 +87,23 @@ class _RingkasanPageState extends State<RingkasanPage> {
                         child: Text(
                           '${alamat}',
                           style: GoogleFonts.openSans(
-                              textStyle: TextStyle(
+                              textStyle: const TextStyle(
                                   fontSize: 15, fontWeight: FontWeight.w400)),
                         ),
                       ),
                       Row(
                         children: [
-                          Icon(
+                          const Icon(
                             Icons.phone,
                             size: 20,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 7,
                           ),
                           Text(
                             '+ ${notelp}',
                             style: GoogleFonts.openSans(
-                                textStyle: TextStyle(
+                                textStyle: const TextStyle(
                                     fontSize: 15, fontWeight: FontWeight.w400)),
                           )
                         ],
@@ -257,9 +257,9 @@ class _RingkasanPageState extends State<RingkasanPage> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(left: 30, top: 5),
+              padding: EdgeInsets.only(left: 20, top: 5),
               child: Row(
-                children: [
+                children: const [
                   Text(
                     '**',
                     style: TextStyle(

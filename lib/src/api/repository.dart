@@ -10,7 +10,6 @@ import 'package:user_futsal/src/model/fasilitasmodel/FasilitasModel.dart';
 import 'package:user_futsal/src/model/futsalmodel/FutsalModel.dart';
 import 'package:user_futsal/src/model/harimodel/HariModel.dart';
 import 'package:user_futsal/src/model/jammodel/JamModel.dart';
-import 'package:user_futsal/src/model/loginmodel/LoginReqModel.dart';
 import 'package:user_futsal/src/model/loginmodel/LoginResModel.dart';
 import 'package:user_futsal/src/model/pertandinganmodel/PertandinganModel.dart';
 import 'package:user_futsal/src/model/registermodel/RegisterResModel.dart';
