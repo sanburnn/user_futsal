@@ -95,7 +95,10 @@ class _TransactionPageState extends State<TransactionPage> {
                             children: [
                               InkWell(
                                 onTap: () => Get.toNamed(buktiRoute,
-                                    arguments: [transaksi.trx[index].bukti]),
+                                    arguments: [
+                                      transaksi.trx[index].bukti,
+                                      transaksi.trx[index].idTransaksi
+                                    ]),
                                 child: Container(
                                   padding:
                                       const EdgeInsets.only(left: 5, right: 5),

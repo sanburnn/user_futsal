@@ -129,11 +129,27 @@ class _RingkasanPageState extends State<RingkasanPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
+                    'Tanggal',
+                    style: GoogleFonts.openSans(fontSize: 16),
+                  ),
+                  Text(
+                    tanggal,
+                    style: GoogleFonts.openSans(fontSize: 16),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 15, top: 15, right: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
                     'Jam',
                     style: GoogleFonts.openSans(fontSize: 16),
                   ),
                   Text(
-                    '13.00 - 15.00',
+                    '${jamMulai} - ${jamAkhir}',
                     style: GoogleFonts.openSans(fontSize: 16),
                   ),
                 ],
@@ -309,18 +325,26 @@ class _RingkasanPageState extends State<RingkasanPage> {
                         primary: primaryColorDark,
                         onPrimary: Colors.white, // foreground
                       ),
-                      onPressed: () {
+                      onPressed: () async {
                         if (_radioValue != null) {
                           if (_radioValue == 'cod') {
-                            Get.offAndToNamed(codRoute);
-                          } else {
-                            order.createTrx(
+                            await order.createTrx(
                                 idLap.toString(),
                                 cek.cek.value.idPengguna!,
                                 cek.cek.value.nama!,
                                 notelp.toString(),
-                                '${jamMulai} - ${jamAkhir}',
                                 tanggal,
+                                '${jamMulai} - ${jamAkhir}',
+                                'cod');
+                            Get.offAndToNamed(codRoute);
+                          } else {
+                            await order.createTrx(
+                                idLap.toString(),
+                                cek.cek.value.idPengguna!,
+                                cek.cek.value.nama!,
+                                notelp.toString(),
+                                tanggal,
+                                '${jamMulai} - ${jamAkhir}',
                                 'trfpending');
                             Get.offAndToNamed(suksesRoute,
                                 arguments: [rekening]);

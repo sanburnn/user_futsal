@@ -21,7 +21,7 @@ class _SuksesPageState extends State<SuksesPage> {
         iconTheme: IconThemeData(color: primaryColorDark),
         backgroundColor: Colors.white,
         leading: IconButton(
-            onPressed: () => Get.offAndToNamed(mainNavigationRoute),
+            onPressed: () => Get.offAllNamed(mainNavigationRoute),
             icon: Icon(Icons.arrow_back)),
         title: Text(
           'Sukses Page',

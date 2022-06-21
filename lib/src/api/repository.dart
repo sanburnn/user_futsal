@@ -15,6 +15,7 @@ import 'package:user_futsal/src/model/loginmodel/LoginResModel.dart';
 import 'package:user_futsal/src/model/pertandinganmodel/PertandinganModel.dart';
 import 'package:user_futsal/src/model/registermodel/RegisterResModel.dart';
 import 'package:user_futsal/src/model/transaksimodel/TransaksiModel.dart';
+import 'package:user_futsal/src/model/uploadbuktimodel/UploadModel.dart';
 import 'package:user_futsal/src/prefs/prefrences.dart';
 
 class ApiService extends GetConnect {
@@ -178,5 +179,27 @@ class ApiService extends GetConnect {
     } else {
       return null;
     }
+  }
+
+  Future<UploadModel?> uploadBukti(filepath, String id) async {
+    var url = Uri.parse('$BASE_URL/uploadbukti/$id');
+    // var map = new Map<String, dynamic>();
+    // map['sendimage'] = await MultipartFile(filepath, filename: "dp");
+    // FormData formData = FormData.fromMap({})
+    http.MultipartRequest request = new http.MultipartRequest("POST", url);
+    http.MultipartFile multipartFile =
+        await http.MultipartFile.fromPath('sendimage', filepath);
+
+    request.files.add(multipartFile);
+
+    http.StreamedResponse response = await request.send();
+    // final response = await http.post(url, body: map);
+
+    print(response.statusCode);
+    // if (response.statusCode == 200) {
+    //   return UploadModel.fromJson(response.body);
+    // } else {
+    //   return null;
+    // }
   }
 }

@@ -420,6 +420,8 @@ class _BookingPageState extends State<BookingPage> {
 
                         if (selectedJam.length < 2) {
                           print(' Kurang ajg');
+                          Get.rawSnackbar(
+                              message: "Silahkan Pilih Hari dan Jam");
                         } else {
                           print('pas suh');
                           print(rekening);
