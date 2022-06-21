@@ -38,7 +38,7 @@ class _TransactionPageState extends State<TransactionPage> {
       body: Container(
         child: Obx(() {
           if (transaksi.isLoading.value) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           } else {
@@ -54,21 +54,21 @@ class _TransactionPageState extends State<TransactionPage> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          SizedBox(
+                          const SizedBox(
                             height: 5,
                           ),
                           Padding(
-                              padding: EdgeInsets.only(left: 10),
+                              padding: const EdgeInsets.only(left: 10),
                               child: Text(
                                 transaksi.trx[index].idfutsal! == '1'
                                     ? 'Arena Glamour'
                                     : 'Green Futsal',
                                 style: GoogleFonts.poppins(
-                                    textStyle: TextStyle(
+                                    textStyle: const TextStyle(
                                         fontWeight: FontWeight.w500,
                                         fontSize: 17)),
                               )),
-                          SizedBox(
+                          const SizedBox(
                             height: 7,
                           ),
                           Container(
@@ -85,7 +85,9 @@ class _TransactionPageState extends State<TransactionPage> {
                                   ? 'Silahkan meng upload bukti transfer DP jika sudah mentransfer.'
                                   : transaksi.trx[index].satatus == 'cod'
                                       ? 'Silahkan membayar DP/full kelokasi batas pembayaran adalah 1 jam setelah memesan'
-                                      : 'Pesanan Berhasil\nBerhasil Selesai',
+                                      : transaksi.trx[index].satatus == 'cancel'
+                                          ? 'Pesanan Batal\nPesanan Dibatalkan'
+                                          : 'Pesanan Berhasil\nBerhasil Selesai',
                               style: GoogleFonts.poppins(
                                   textStyle: TextStyle(fontSize: 14),
                                   color: Colors.grey.shade600),

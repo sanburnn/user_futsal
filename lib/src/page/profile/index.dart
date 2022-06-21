@@ -44,7 +44,9 @@ class _ProfilePageState extends State<ProfilePage> {
             Obx(() {
               if (cek.isLoading.value) {
                 return const Center(
-                  child: CircularProgressIndicator(),
+                  child: CircularProgressIndicator(
+                    color: primaryColorDark,
+                  ),
                 );
               } else {
                 return Container(
@@ -87,6 +89,16 @@ class _ProfilePageState extends State<ProfilePage> {
               top: 80,
               left: 80,
               child: Container(
+                child: Center(
+                    child: Text(
+                  'COMING SOON!',
+                  style: GoogleFonts.poppins(
+                    textStyle: const TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16,
+                        color: primaryColorDark),
+                  ),
+                )),
                 decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
@@ -125,17 +137,17 @@ class _ProfilePageState extends State<ProfilePage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(
+                            const Icon(
                               Icons.logout_outlined,
                               size: 25,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 7,
                             ),
                             Text(
                               'keluar',
                               style: GoogleFonts.poppins(
-                                  textStyle: TextStyle(
+                                  textStyle: const TextStyle(
                                       fontSize: 15, color: primaryColorDark)),
                             )
                           ],
@@ -144,6 +156,19 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   )),
             ),
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 160),
+                child: Text(
+                  'Version 1.0.0',
+                  style: GoogleFonts.poppins(
+                      textStyle: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 16,
+                          color: primaryColorDark)),
+                ),
+              ),
+            )
           ],
         ),
       ),

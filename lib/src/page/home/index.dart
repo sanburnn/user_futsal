@@ -60,23 +60,23 @@ class _FutsalHomePageState extends State<FutsalHomePage> {
                 toolbarHeight: 52,
                 backgroundColor: Colors.white,
                 elevation: 0,
-                title: Container(
-                  padding: const EdgeInsets.only(left: 20, right: 20),
-                  child: Obx(() {
-                    if (cek.isLoading.value) {
-                      return const Center(
-                        child: CircularProgressIndicator(),
-                      );
-                    } else {
-                      return Text('Hello ${cek.cek.value.username}',
+                title: Obx(() {
+                  if (cek.isLoading.value) {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  } else {
+                    return Container(
+                      padding: const EdgeInsets.only(left: 20, right: 20),
+                      child: Text('Hello ${cek.cek.value.username}',
                           style: GoogleFonts.poppins(
                               textStyle: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: primaryColorDark,
-                                  fontSize: 26)));
-                    }
-                  }),
-                ),
+                                  fontSize: 26))),
+                    );
+                  }
+                }),
               ),
             ),
             SliverToBoxAdapter(

@@ -355,13 +355,19 @@ class _RingkasanPageState extends State<RingkasanPage> {
                               margin: EdgeInsets.only(bottom: 30));
                         }
                       },
-                      child: Text(
-                        'Pesan',
-                        style: GoogleFonts.poppins(
-                            textStyle: TextStyle(
-                          fontSize: 15,
-                        )),
-                      )),
+                      child: Obx(() {
+                        return order.isLoading.value == true
+                            ? CircularProgressIndicator(
+                                color: Colors.white,
+                              )
+                            : Text(
+                                'Pesan',
+                                style: TextStyle(
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: "Roboto"),
+                              );
+                      })),
                 ),
               ),
             ),
