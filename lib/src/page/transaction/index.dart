@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:user_futsal/src/controller/cekuser_controller.dart';
 import 'package:user_futsal/src/controller/transaksi_controller.dart';
+import 'package:user_futsal/src/router/constant.dart';
 import 'package:user_futsal/src/services/themes.dart';
 
 class TransactionPage extends StatefulWidget {
@@ -93,7 +94,8 @@ class _TransactionPageState extends State<TransactionPage> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               InkWell(
-                                onTap: () {},
+                                onTap: () => Get.toNamed(buktiRoute,
+                                    arguments: [transaksi.trx[index].bukti]),
                                 child: Container(
                                   padding:
                                       const EdgeInsets.only(left: 5, right: 5),
@@ -142,14 +144,75 @@ class _TransactionPageState extends State<TransactionPage> {
                             child: Padding(
                               padding: const EdgeInsets.only(right: 10),
                               child: Text(
-                                'Pending',
+                                transaksi.trx[index].satatus == 'cod'
+                                    ? 'COD'
+                                    : transaksi.trx[index].satatus ==
+                                            'trfpending'
+                                        ? 'Kirim Bukti Transfer'
+                                        : transaksi.trx[index].satatus ==
+                                                'succes'
+                                            ? 'Berhasil'
+                                            : transaksi.trx[index].satatus ==
+                                                    'cancel'
+                                                ? 'Dibatalkan'
+                                                : '',
                                 style: GoogleFonts.poppins(
-                                  textStyle: const TextStyle(
+                                  textStyle: TextStyle(
                                       fontWeight: FontWeight.w500,
+                                      color: transaksi.trx[index].satatus ==
+                                              'cod'
+                                          ? Colors.blue
+                                          : transaksi.trx[index].satatus ==
+                                                  'succes'
+                                              ? Colors.green
+                                              : transaksi.trx[index].satatus ==
+                                                      'cancel'
+                                                  ? Colors.red
+                                                  : transaksi.trx[index]
+                                                              .satatus ==
+                                                          'trfpending'
+                                                      ? Colors.blue
+                                                      : Colors.grey,
                                       fontSize: 16),
                                 ),
                               ),
                             ),
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Container(
+                                height: 15,
+                                width: 15,
+                                color: Colors.blue,
+                              ),
+                              Text(' : Proses'),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Container(
+                                height: 15,
+                                width: 15,
+                                color: Colors.green,
+                              ),
+                              Text(' : Sukses'),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Container(
+                                height: 15,
+                                width: 15,
+                                color: Colors.red,
+                              ),
+                              Text(' : Batal'),
+                              SizedBox(
+                                width: 5,
+                              ),
+                            ],
                           ),
                           const SizedBox(
                             height: 15,
