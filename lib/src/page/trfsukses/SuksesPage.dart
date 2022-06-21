@@ -18,22 +18,22 @@ class _SuksesPageState extends State<SuksesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: primaryColorDark),
+        iconTheme: const IconThemeData(color: primaryColorDark),
         backgroundColor: Colors.white,
         leading: IconButton(
             onPressed: () => Get.offAllNamed(mainNavigationRoute),
-            icon: Icon(Icons.arrow_back)),
+            icon: const Icon(Icons.arrow_back)),
         title: Text(
           'Sukses Page',
           style: GoogleFonts.poppins(
-              textStyle:
-                  TextStyle(fontWeight: FontWeight.w500, color: Colors.black)),
+              textStyle: const TextStyle(
+                  fontWeight: FontWeight.w500, color: Colors.black)),
         ),
       ),
       body: Container(
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 45,
             ),
             Center(
@@ -46,7 +46,7 @@ class _SuksesPageState extends State<SuksesPage> {
                     color: Colors.grey.shade600),
               ),
             )),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Center(
@@ -63,30 +63,30 @@ class _SuksesPageState extends State<SuksesPage> {
                   Text(
                     'Segera lakukan Pembayaran DP Sebesar "Rp.50.000" ke nomer rekening dibawah ini: ',
                     style: GoogleFonts.poppins(
-                      textStyle:
-                          TextStyle(fontWeight: FontWeight.w400, fontSize: 17),
+                      textStyle: const TextStyle(
+                          fontWeight: FontWeight.w400, fontSize: 17),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 7,
                   ),
                   Text(
                     rekening,
                     style: GoogleFonts.poppins(
-                      textStyle: TextStyle(
+                      textStyle: const TextStyle(
                           fontWeight: FontWeight.w400,
                           fontSize: 16,
                           color: primaryColorDark),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 7,
                   ),
                   Text(
                     'Setelah mentransfer uplaod bukti transfer pada menu upload ',
                     style: GoogleFonts.poppins(
-                      textStyle:
-                          TextStyle(fontWeight: FontWeight.w400, fontSize: 15),
+                      textStyle: const TextStyle(
+                          fontWeight: FontWeight.w400, fontSize: 15),
                     ),
                   ),
                 ],
@@ -105,7 +105,7 @@ class _SuksesPageState extends State<SuksesPage> {
                       onPrimary: Colors.white, // foreground
                     ),
                     onPressed: () => Get.offAllNamed(mainNavigationRoute),
-                    child: Text(
+                    child: const Text(
                       'Kembali ke Depan',
                       style: TextStyle(
                           fontSize: 19,
