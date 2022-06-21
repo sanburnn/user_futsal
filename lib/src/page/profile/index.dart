@@ -43,7 +43,9 @@ class _ProfilePageState extends State<ProfilePage> {
           children: [
             Obx(() {
               if (cek.isLoading.value) {
-                return const Center(
+                return Positioned(
+                  top: 40,
+                  left: 180,
                   child: CircularProgressIndicator(
                     color: primaryColorDark,
                   ),
@@ -88,32 +90,35 @@ class _ProfilePageState extends State<ProfilePage> {
             Positioned(
               top: 80,
               left: 80,
-              child: Container(
-                child: Center(
-                    child: Text(
-                  'COMING SOON!',
-                  style: GoogleFonts.poppins(
-                    textStyle: const TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 16,
-                        color: primaryColorDark),
-                  ),
-                )),
-                decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey,
-                        blurRadius: 3.0,
-                        spreadRadius: 0.5,
-                        offset:
-                            Offset(2.0, 2.0), // shadow direction: bottom right
-                      )
-                    ],
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(13)),
-                width: 250,
-                height: 60,
-                padding: EdgeInsets.only(left: 10, right: 10),
+              child: InkWell(
+                onTap: () {},
+                child: Container(
+                  child: Center(
+                      child: Text(
+                    'COMING SOON!',
+                    style: GoogleFonts.poppins(
+                      textStyle: const TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 16,
+                          color: primaryColorDark),
+                    ),
+                  )),
+                  decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey,
+                          blurRadius: 3.0,
+                          spreadRadius: 0.5,
+                          offset: Offset(
+                              2.0, 2.0), // shadow direction: bottom right
+                        )
+                      ],
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(13)),
+                  width: 250,
+                  height: 60,
+                  padding: EdgeInsets.only(left: 10, right: 10),
+                ),
               ),
             ),
             SizedBox(

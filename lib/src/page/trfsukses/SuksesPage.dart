@@ -91,7 +91,29 @@ class _SuksesPageState extends State<SuksesPage> {
                   ),
                 ],
               ),
-            )
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20, top: 38),
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: 50,
+                child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8)),
+                      primary: primaryColorDark,
+                      onPrimary: Colors.white, // foreground
+                    ),
+                    onPressed: () => Get.offAllNamed(mainNavigationRoute),
+                    child: Text(
+                      'Kembali ke Depan',
+                      style: TextStyle(
+                          fontSize: 19,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "Roboto"),
+                    )),
+              ),
+            ),
           ],
         ),
       ),

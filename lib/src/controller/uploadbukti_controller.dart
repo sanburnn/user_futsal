@@ -18,11 +18,7 @@ class UploadBuktiController extends GetxController {
         if (response != null) {
           Get.snackbar('Success', 'Image uploaded successfully',
               margin: EdgeInsets.only(top: 5, left: 10, right: 10));
-        } else {
-          Get.rawSnackbar(
-              message: 'Failed',
-              margin: EdgeInsets.only(top: 5, left: 10, right: 10));
-        }
+        } else {}
       } else {
         Get.snackbar('Failed', 'Image not selected',
             margin: EdgeInsets.only(top: 5, left: 10, right: 10));

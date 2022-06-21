@@ -116,7 +116,17 @@ class _FutsalHomePageState extends State<FutsalHomePage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 InkWell(
-                                  onTap: () {},
+                                  onTap: () =>
+                                      Get.toNamed(lapanganRoute, arguments: [
+                                    lap.lap[index].idFutsal,
+                                    lap.lap[index].foto,
+                                    lap.lap[index].namatempat,
+                                    lap.lap[index].deskripsi,
+                                    lap.lap[index].alamat,
+                                    lap.lap[index].notelp,
+                                    lap.lap[index].harga,
+                                    lap.lap[index].rekening ?? ""
+                                  ]),
                                   child: Row(
                                     children: [
                                       SizedBox(
@@ -166,7 +176,7 @@ class _FutsalHomePageState extends State<FutsalHomePage> {
                                   ),
                                 ),
                                 Container(
-                                  padding: EdgeInsets.only(left: 5, right: 5),
+                                  padding: EdgeInsets.only(left: 5, right: 25),
                                   child: Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
@@ -183,7 +193,7 @@ class _FutsalHomePageState extends State<FutsalHomePage> {
                                       ),
                                       Container(
                                         height: 30,
-                                        width: 100,
+                                        width: 80,
                                         child: ElevatedButton(
                                             style: ElevatedButton.styleFrom(
                                                 shape: RoundedRectangleBorder(
