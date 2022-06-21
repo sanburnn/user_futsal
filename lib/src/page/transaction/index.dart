@@ -17,9 +17,9 @@ class _TransactionPageState extends State<TransactionPage> {
   CekuserController cek = Get.put(CekuserController());
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    transaksi.getTransaksi(cek.cek.value.idPengguna!);
+    transaksi.getTransaksi(
+        cek.cek.value.idPengguna!.isNotEmpty ? cek.cek.value.idPengguna! : "");
   }
 
   @override
@@ -74,7 +74,7 @@ class _TransactionPageState extends State<TransactionPage> {
                             color: Colors.grey.shade400,
                             height: 1.5,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 5,
                           ),
                           Padding(
@@ -86,7 +86,7 @@ class _TransactionPageState extends State<TransactionPage> {
                                   color: Colors.grey.shade600),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           ),
                           Row(
@@ -95,7 +95,8 @@ class _TransactionPageState extends State<TransactionPage> {
                               InkWell(
                                 onTap: () {},
                                 child: Container(
-                                  padding: EdgeInsets.only(left: 5, right: 5),
+                                  padding:
+                                      const EdgeInsets.only(left: 5, right: 5),
                                   alignment: Alignment.center,
                                   decoration: const BoxDecoration(
                                       color: primaryColorDark,
@@ -111,11 +112,11 @@ class _TransactionPageState extends State<TransactionPage> {
                                       Text(
                                         'Upload Bukti',
                                         style: GoogleFonts.poppins(
-                                            textStyle:
-                                                TextStyle(color: Colors.white)),
+                                            textStyle: const TextStyle(
+                                                color: Colors.white)),
                                         textAlign: TextAlign.center,
                                       ),
-                                      Icon(Icons.upload_file,
+                                      const Icon(Icons.upload_file,
                                           size: 27, color: Colors.white)
                                     ],
                                   ),
@@ -128,7 +129,7 @@ class _TransactionPageState extends State<TransactionPage> {
                                       ? 'COD'
                                       : 'DP Rp.50.000',
                                   style: GoogleFonts.poppins(
-                                      textStyle: TextStyle(
+                                      textStyle: const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w500,
                                   )),
@@ -143,14 +144,14 @@ class _TransactionPageState extends State<TransactionPage> {
                               child: Text(
                                 'Pending',
                                 style: GoogleFonts.poppins(
-                                  textStyle: TextStyle(
+                                  textStyle: const TextStyle(
                                       fontWeight: FontWeight.w500,
                                       fontSize: 16),
                                 ),
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 15,
                           )
                         ],
@@ -164,3 +165,7 @@ class _TransactionPageState extends State<TransactionPage> {
     );
   }
 }
+//!=========Status========>
+//* cod = COD
+//* trfpending = kirim bukti transfer
+//* succes = SUKSES
