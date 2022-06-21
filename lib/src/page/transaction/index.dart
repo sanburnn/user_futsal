@@ -81,7 +81,11 @@ class _TransactionPageState extends State<TransactionPage> {
                           Padding(
                             padding: const EdgeInsets.only(left: 15, right: 15),
                             child: Text(
-                              'Silahkan meng upload bukti transfer DP jika sudah mentransfer.',
+                              transaksi.trx[index].satatus == 'trfpending'
+                                  ? 'Silahkan meng upload bukti transfer DP jika sudah mentransfer.'
+                                  : transaksi.trx[index].satatus == 'cod'
+                                      ? 'Silahkan membayar DP/full kelokasi batas pembayaran adalah 1 jam setelah memesan'
+                                      : 'Pesanan Berhasil\nBerhasil Selesai',
                               style: GoogleFonts.poppins(
                                   textStyle: TextStyle(fontSize: 14),
                                   color: Colors.grey.shade600),
@@ -93,40 +97,42 @@ class _TransactionPageState extends State<TransactionPage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              InkWell(
-                                onTap: () => Get.toNamed(buktiRoute,
-                                    arguments: [
-                                      transaksi.trx[index].bukti,
-                                      transaksi.trx[index].idTransaksi
-                                    ]),
-                                child: Container(
-                                  padding:
-                                      const EdgeInsets.only(left: 5, right: 5),
-                                  alignment: Alignment.center,
-                                  decoration: const BoxDecoration(
-                                      color: primaryColorDark,
-                                      borderRadius: BorderRadius.only(
-                                          bottomRight: Radius.circular(8),
-                                          topRight: Radius.circular(8))),
-                                  width: 130,
-                                  height: 40,
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        'Upload Bukti',
-                                        style: GoogleFonts.poppins(
-                                            textStyle: const TextStyle(
-                                                color: Colors.white)),
-                                        textAlign: TextAlign.center,
+                              transaksi.trx[index].satatus == 'trfpending'
+                                  ? InkWell(
+                                      onTap: () => Get.toNamed(buktiRoute,
+                                          arguments: [
+                                            transaksi.trx[index].bukti,
+                                            transaksi.trx[index].idTransaksi
+                                          ]),
+                                      child: Container(
+                                        padding: const EdgeInsets.only(
+                                            left: 5, right: 5),
+                                        alignment: Alignment.center,
+                                        decoration: const BoxDecoration(
+                                            color: primaryColorDark,
+                                            borderRadius: BorderRadius.only(
+                                                bottomRight: Radius.circular(8),
+                                                topRight: Radius.circular(8))),
+                                        width: 130,
+                                        height: 40,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              'Upload Bukti',
+                                              style: GoogleFonts.poppins(
+                                                  textStyle: const TextStyle(
+                                                      color: Colors.white)),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                            const Icon(Icons.upload_file,
+                                                size: 27, color: Colors.white)
+                                          ],
+                                        ),
                                       ),
-                                      const Icon(Icons.upload_file,
-                                          size: 27, color: Colors.white)
-                                    ],
-                                  ),
-                                ),
-                              ),
+                                    )
+                                  : Container(),
                               Padding(
                                 padding: const EdgeInsets.only(right: 10),
                                 child: Text(

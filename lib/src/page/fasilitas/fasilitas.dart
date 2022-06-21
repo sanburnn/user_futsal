@@ -85,9 +85,15 @@ class _FasilitasPageState extends State<FasilitasPage> {
                                   ),
                                 ),
                               ),
+                              SizedBox(
+                                height: 10,
+                              ),
                               Container(
                                 color: primaryGreyDark,
                                 height: 2,
+                              ),
+                              SizedBox(
+                                height: 10,
                               ),
                               Container(
                                 padding: EdgeInsets.only(left: 5),
