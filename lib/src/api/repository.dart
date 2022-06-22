@@ -200,5 +200,6 @@ class ApiService extends GetConnect {
     } else {
       return null;
     }
+    return null;
   }
 }

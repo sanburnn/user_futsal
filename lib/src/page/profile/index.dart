@@ -33,7 +33,7 @@ class _ProfilePageState extends State<ProfilePage> {
           child: Text(
             'Profile',
             style: GoogleFonts.poppins(
-                textStyle: TextStyle(
+                textStyle: const TextStyle(
                     fontWeight: FontWeight.w500, color: Colors.black)),
           ),
         ),
@@ -43,7 +43,7 @@ class _ProfilePageState extends State<ProfilePage> {
           children: [
             Obx(() {
               if (cek.isLoading.value) {
-                return Positioned(
+                return const Positioned(
                   top: 40,
                   left: 180,
                   child: CircularProgressIndicator(
@@ -63,7 +63,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         child: Text(
                           cek.cek.value.nama!,
                           style: GoogleFonts.poppins(
-                            textStyle: TextStyle(
+                            textStyle: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold),
@@ -75,7 +75,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         child: Text(
                           '+ ${cek.cek.value.notelp}',
                           style: GoogleFonts.poppins(
-                            textStyle: TextStyle(
+                            textStyle: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 18,
                                 fontWeight: FontWeight.w300),
@@ -104,7 +104,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   )),
                   decoration: BoxDecoration(
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
                           color: Colors.grey,
                           blurRadius: 3.0,
@@ -117,11 +117,11 @@ class _ProfilePageState extends State<ProfilePage> {
                       borderRadius: BorderRadius.circular(13)),
                   width: 250,
                   height: 60,
-                  padding: EdgeInsets.only(left: 10, right: 10),
+                  padding: const EdgeInsets.only(left: 10, right: 10),
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Center(
@@ -138,7 +138,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0)),
                       child: Container(
-                        margin: EdgeInsets.only(left: 5, right: 5),
+                        margin: const EdgeInsets.only(left: 5, right: 5),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -167,7 +167,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: Text(
                   'Version 1.0.0',
                   style: GoogleFonts.poppins(
-                      textStyle: TextStyle(
+                      textStyle: const TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 16,
                           color: primaryColorDark)),
