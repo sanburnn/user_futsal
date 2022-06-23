@@ -81,6 +81,24 @@ class _TransactionPageState extends State<TransactionPage> {
                           Padding(
                             padding: const EdgeInsets.only(left: 15, right: 15),
                             child: Text(
+                              transaksi.trx[index].tanggal!,
+                              style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(fontSize: 16),
+                                  color: Colors.black),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 15, right: 15),
+                            child: Text(
+                              transaksi.trx[index].tanggal!,
+                              style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(fontSize: 16),
+                                  color: Colors.black),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 15, right: 15),
+                            child: Text(
                               transaksi.trx[index].satatus == 'trfpending'
                                   ? 'Silahkan meng upload bukti transfer DP jika sudah mentransfer.'
                                   : transaksi.trx[index].satatus == 'cod'
@@ -89,7 +107,7 @@ class _TransactionPageState extends State<TransactionPage> {
                                           ? 'Pesanan Batal\nPesanan Dibatalkan'
                                           : 'Pesanan Berhasil\nBerhasil Selesai',
                               style: GoogleFonts.poppins(
-                                  textStyle: TextStyle(fontSize: 14),
+                                  textStyle: TextStyle(fontSize: 13),
                                   color: Colors.grey.shade600),
                             ),
                           ),
