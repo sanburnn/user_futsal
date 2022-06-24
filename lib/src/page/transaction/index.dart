@@ -46,7 +46,7 @@ class _TransactionPageState extends State<TransactionPage> {
                 itemCount: transaksi.trx.length,
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: EdgeInsets.only(left: 15, right: 15),
+                    padding: const EdgeInsets.only(left: 15, right: 15),
                     child: Card(
                       elevation: 10,
                       shape: RoundedRectangleBorder(
@@ -207,7 +207,7 @@ class _TransactionPageState extends State<TransactionPage> {
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 5,
                           ),
                           Row(
@@ -219,8 +219,8 @@ class _TransactionPageState extends State<TransactionPage> {
                                 width: 15,
                                 color: Colors.blue,
                               ),
-                              Text(' : Proses'),
-                              SizedBox(
+                              const Text(' : Proses'),
+                              const SizedBox(
                                 width: 5,
                               ),
                               Container(
@@ -228,8 +228,8 @@ class _TransactionPageState extends State<TransactionPage> {
                                 width: 15,
                                 color: Colors.green,
                               ),
-                              Text(' : Sukses'),
-                              SizedBox(
+                              const Text(' : Sukses'),
+                              const SizedBox(
                                 width: 5,
                               ),
                               Container(
@@ -237,8 +237,8 @@ class _TransactionPageState extends State<TransactionPage> {
                                 width: 15,
                                 color: Colors.red,
                               ),
-                              Text(' : Batal'),
-                              SizedBox(
+                              const Text(' : Batal'),
+                              const SizedBox(
                                 width: 5,
                               ),
                             ],
