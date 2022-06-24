@@ -90,7 +90,7 @@ class _TransactionPageState extends State<TransactionPage> {
                           Padding(
                             padding: const EdgeInsets.only(left: 15, right: 15),
                             child: Text(
-                              transaksi.trx[index].tanggal!,
+                              transaksi.trx[index].jam!,
                               style: GoogleFonts.poppins(
                                   textStyle: TextStyle(fontSize: 16),
                                   color: Colors.black),
