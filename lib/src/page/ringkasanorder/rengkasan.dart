@@ -228,7 +228,7 @@ class _RingkasanPageState extends State<RingkasanPage> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Container(
@@ -236,9 +236,9 @@ class _RingkasanPageState extends State<RingkasanPage> {
               color: Colors.grey.shade300,
             ),
             Padding(
-              padding: EdgeInsets.only(left: 30, top: 10),
+              padding: EdgeInsets.only(left: 5, top: 10),
               child: Row(
-                children: [
+                children: const [
                   Text(
                     '*',
                     style: TextStyle(
@@ -257,7 +257,7 @@ class _RingkasanPageState extends State<RingkasanPage> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(left: 20, top: 5),
+              padding: const EdgeInsets.only(left: 5, top: 5),
               child: Row(
                 children: const [
                   Text(
@@ -277,7 +277,7 @@ class _RingkasanPageState extends State<RingkasanPage> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 60,
             ),
             Container(
@@ -285,7 +285,7 @@ class _RingkasanPageState extends State<RingkasanPage> {
               color: Colors.grey.shade300,
             ),
             Padding(
-              padding: EdgeInsets.only(left: 15, right: 15, top: 5),
+              padding: const EdgeInsets.only(left: 15, right: 15, top: 5),
               child: Container(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -294,14 +294,14 @@ class _RingkasanPageState extends State<RingkasanPage> {
                     Text(
                       'Total Bayar',
                       style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
+                        textStyle: const TextStyle(
                             fontSize: 17, fontWeight: FontWeight.w500),
                       ),
                     ),
                     Text(
                       'Rp. ${harga * (totaljam.length - 1)} ',
                       style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
+                        textStyle: const TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 17,
                         ),
