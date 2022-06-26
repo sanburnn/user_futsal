@@ -31,7 +31,8 @@ class _LapanganFutsalState extends State<LapanganFutsal> {
         backgroundColor: Colors.white,
         title: Text(
           'Lapangan Futsal',
-          style: GoogleFonts.poppins(textStyle: TextStyle(color: Colors.black)),
+          style: GoogleFonts.poppins(
+              textStyle: const TextStyle(color: Colors.black)),
         ),
       ),
       body: Container(
@@ -81,7 +82,7 @@ class _LapanganFutsalState extends State<LapanganFutsal> {
                               Text(
                                 'Jadwal \nPertandingan',
                                 style: GoogleFonts.poppins(
-                                    textStyle: TextStyle(
+                                    textStyle: const TextStyle(
                                   fontSize: 13,
                                 )),
                               ),
