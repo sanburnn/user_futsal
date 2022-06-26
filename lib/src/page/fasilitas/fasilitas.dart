@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -39,7 +40,7 @@ class _FasilitasPageState extends State<FasilitasPage> {
           padding: const EdgeInsets.all(10),
           child: Obx(() {
             if (fasilitas.isLoading.value) {
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             } else {
@@ -58,18 +59,38 @@ class _FasilitasPageState extends State<FasilitasPage> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              SizedBox(
-                                width: 360,
-                                height: 150,
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(10),
-                                  child: Image.network(
-                                    BASE_URL_IMAGE_FASIL +
-                                        "/${fasilitas.fas[index].foto}",
-                                    fit: BoxFit.fill,
-                                  ),
+                              CachedNetworkImage(
+                                imageUrl: BASE_URL_IMAGE_FASIL +
+                                    '/${fasilitas.fas[index].foto}',
+                                imageBuilder: (context, imageProvider) =>
+                                    Container(
+                                  width: 360,
+                                  height: 150,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      image: DecorationImage(
+                                          image: imageProvider,
+                                          fit: BoxFit.fill)),
                                 ),
+                                placeholder: (context, url) => const Center(
+                                    child: CircularProgressIndicator(
+                                  color: primaryColorDark,
+                                )),
+                                errorWidget: (context, url, error) =>
+                                    const Center(child: Icon(Icons.error)),
                               ),
+                              // SizedBox(
+                              //   width: 360,
+                              //   height: 150,
+                              //   child: ClipRRect(
+                              //     borderRadius: BorderRadius.circular(10),
+                              //     child: Image.network(
+                              //       BASE_URL_IMAGE_FASIL +
+                              //           "/${fasilitas.fas[index].foto}",
+                              //       fit: BoxFit.fill,
+                              //     ),
+                              //   ),
+                              // ),
                               SizedBox(
                                 height: 10,
                               ),

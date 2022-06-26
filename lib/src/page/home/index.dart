@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -129,20 +130,45 @@ class _FutsalHomePageState extends State<FutsalHomePage> {
                                   ]),
                                   child: Row(
                                     children: [
-                                      SizedBox(
-                                        width: 195,
-                                        height: 120,
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          child: Image.network(
-                                            BASE_URL_IMAGE_LAP +
-                                                "/${lap.lap[index].foto}",
-                                            fit: BoxFit.fill,
-                                            height: 120,
-                                          ),
+                                      CachedNetworkImage(
+                                        imageUrl: BASE_URL_IMAGE_LAP +
+                                            '/${lap.lap[index].foto}',
+                                        imageBuilder:
+                                            (context, imageProvider) =>
+                                                Container(
+                                          width: 195,
+                                          height: 120,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              image: DecorationImage(
+                                                  image: imageProvider,
+                                                  fit: BoxFit.fill)),
                                         ),
+                                        placeholder: (context, url) =>
+                                            const Center(
+                                                child:
+                                                    CircularProgressIndicator(
+                                          color: primaryColorDark,
+                                        )),
+                                        errorWidget: (context, url, error) =>
+                                            const Center(
+                                                child: Icon(Icons.error)),
                                       ),
+                                      // SizedBox(
+                                      //   width: 195,
+                                      //   height: 120,
+                                      //   child: ClipRRect(
+                                      //     borderRadius:
+                                      //         BorderRadius.circular(10),
+                                      //     child: Image.network(
+                                      //       BASE_URL_IMAGE_LAP +
+                                      //           "/${lap.lap[index].foto}",
+                                      //       fit: BoxFit.fill,
+                                      //       height: 120,
+                                      //     ),
+                                      //   ),
+                                      // ),
                                       const SizedBox(
                                         width: 10,
                                       ),

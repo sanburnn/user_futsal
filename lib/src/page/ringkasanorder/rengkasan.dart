@@ -54,8 +54,8 @@ class _RingkasanPageState extends State<RingkasanPage> {
                   borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(15),
                       bottomRight: Radius.circular(15))),
-              padding:
-                  EdgeInsets.only(left: 15, right: 15, top: 20, bottom: 10),
+              padding: const EdgeInsets.only(
+                  left: 15, right: 15, top: 20, bottom: 10),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -352,15 +352,15 @@ class _RingkasanPageState extends State<RingkasanPage> {
                         } else {
                           Get.rawSnackbar(
                               message: "Pilih Salah Satu Metode Pembayaran",
-                              margin: EdgeInsets.only(bottom: 30));
+                              margin: const EdgeInsets.only(bottom: 30));
                         }
                       },
                       child: Obx(() {
                         return order.isLoading.value == true
-                            ? CircularProgressIndicator(
+                            ? const CircularProgressIndicator(
                                 color: Colors.white,
                               )
-                            : Text(
+                            : const Text(
                                 'Pesan',
                                 style: TextStyle(
                                     fontSize: 19,

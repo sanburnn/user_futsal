@@ -27,7 +27,7 @@ class _LapanganFutsalState extends State<LapanganFutsal> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: primaryColorDark),
+        iconTheme: const IconThemeData(color: primaryColorDark),
         backgroundColor: Colors.white,
         title: Text(
           'Lapangan Futsal',
@@ -43,15 +43,15 @@ class _LapanganFutsalState extends State<LapanganFutsal> {
                   image: DecorationImage(
                       image: NetworkImage(BASE_URL_IMAGE_LAP + "/${foto}")),
                   color: Colors.white,
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(30),
                       bottomRight: Radius.circular(30))),
             ),
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
             Container(
-              padding: EdgeInsets.only(left: 15, right: 15),
+              padding: const EdgeInsets.only(left: 15, right: 15),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -71,11 +71,11 @@ class _LapanganFutsalState extends State<LapanganFutsal> {
                               arguments: [idLap]),
                           child: Row(
                             children: [
-                              Icon(
+                              const Icon(
                                 Icons.screen_search_desktop_outlined,
                                 size: 30,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 5,
                               ),
                               Text(
@@ -112,7 +112,7 @@ class _LapanganFutsalState extends State<LapanganFutsal> {
                               Text(
                                 'Fasilitas',
                                 style: GoogleFonts.poppins(
-                                    textStyle: TextStyle(
+                                    textStyle: const TextStyle(
                                   fontSize: 17,
                                 )),
                               ),
@@ -124,7 +124,7 @@ class _LapanganFutsalState extends State<LapanganFutsal> {
               ),
             ),
             Container(
-              padding: EdgeInsets.only(left: 15, right: 15),
+              padding: const EdgeInsets.only(left: 15, right: 15),
               alignment: Alignment.topLeft,
               height: 60,
               child: Row(
@@ -136,7 +136,7 @@ class _LapanganFutsalState extends State<LapanganFutsal> {
                       Container(
                           child: Text('Harga Per jam',
                               style: GoogleFonts.poppins(
-                                  textStyle: TextStyle(
+                                  textStyle: const TextStyle(
                                       fontSize: 15,
                                       fontWeight: FontWeight.w600)))),
                       Text(
@@ -145,7 +145,7 @@ class _LapanganFutsalState extends State<LapanganFutsal> {
                       ),
                     ],
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.end,
@@ -153,17 +153,17 @@ class _LapanganFutsalState extends State<LapanganFutsal> {
                       Container(
                           child: Text('Nomor Telpon',
                               style: GoogleFonts.poppins(
-                                  textStyle: TextStyle(
+                                  textStyle: const TextStyle(
                                       fontSize: 15,
                                       fontWeight: FontWeight.w600)))),
                       Row(
                         children: [
-                          Icon(
+                          const Icon(
                             Icons.phone_forwarded_rounded,
                             size: 20,
                             color: primaryColorDark,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 5,
                           ),
                           Text(
@@ -178,7 +178,7 @@ class _LapanganFutsalState extends State<LapanganFutsal> {
               ),
             ),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 12),
+              margin: const EdgeInsets.symmetric(horizontal: 12),
               decoration: BoxDecoration(
                   color: primaryColor, borderRadius: BorderRadius.circular(17)),
               height: 200,
@@ -190,10 +190,10 @@ class _LapanganFutsalState extends State<LapanganFutsal> {
                   Text(
                     nama,
                     style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
+                        textStyle: const TextStyle(
                             fontSize: 17, fontWeight: FontWeight.w500)),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   SizedBox(
@@ -201,17 +201,17 @@ class _LapanganFutsalState extends State<LapanganFutsal> {
                     child: Text(
                       deskripsi,
                       style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
+                          textStyle: const TextStyle(
                               fontSize: 13, fontWeight: FontWeight.w500)),
                     ),
                   ),
                   Text(
                     "Alamat",
                     style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
+                        textStyle: const TextStyle(
                             fontSize: 15, fontWeight: FontWeight.w500)),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   SizedBox(
@@ -219,7 +219,7 @@ class _LapanganFutsalState extends State<LapanganFutsal> {
                     child: Text(
                       alamat,
                       style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
+                          textStyle: const TextStyle(
                               fontSize: 13, fontWeight: FontWeight.w500)),
                     ),
                   ),
@@ -252,7 +252,7 @@ class _LapanganFutsalState extends State<LapanganFutsal> {
                       child: Text(
                         'Booking Lapangan',
                         style: GoogleFonts.poppins(
-                            textStyle: TextStyle(
+                            textStyle: const TextStyle(
                           fontSize: 15,
                         )),
                       )),
