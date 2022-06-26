@@ -28,21 +28,21 @@ class _RegisterPageState extends State<RegisterPage> {
         padding: EdgeInsets.only(left: 20, right: 20),
         child: ListView(
           children: [
-            SizedBox(
-              height: 30,
+            const SizedBox(
+              height: 80,
             ),
             Container(
               child: Text(
                 'Daftar Akun Sewa Lapangan',
                 style: GoogleFonts.poppins(
-                  textStyle: TextStyle(
+                  textStyle: const TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 25,
                       color: primaryColorDark),
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Container(
@@ -54,7 +54,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Theme(
@@ -76,7 +76,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Theme(
@@ -98,7 +98,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Theme(
@@ -121,7 +121,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Theme(
@@ -199,14 +199,14 @@ class _RegisterPageState extends State<RegisterPage> {
                     style: GoogleFonts.poppins(
                         textStyle: TextStyle(
                             fontSize: 16, color: Colors.grey.shade700))),
-                SizedBox(
+                const SizedBox(
                   width: 5,
                 ),
                 InkWell(
                   onTap: () => Get.toNamed(loginRoute),
                   child: Text('LOGIN',
                       style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
+                          textStyle: const TextStyle(
                               fontWeight: FontWeight.w600,
                               fontSize: 16,
                               color: primaryColorDark))),
