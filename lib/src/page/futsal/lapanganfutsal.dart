@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -38,16 +39,27 @@ class _LapanganFutsalState extends State<LapanganFutsal> {
       body: Container(
         child: ListView(
           children: [
-            Container(
-              height: 250,
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: NetworkImage(BASE_URL_IMAGE_LAP + "/${foto}")),
-                  color: Colors.white,
-                  borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(30),
-                      bottomRight: Radius.circular(30))),
+            CachedNetworkImage(
+              imageUrl: BASE_URL_IMAGE_LAP + "/${foto}",
+              imageBuilder: (context, imageProvider) => Container(
+                height: 250,
+                decoration: BoxDecoration(
+                    image: DecorationImage(image: imageProvider),
+                    borderRadius: const BorderRadius.only(
+                        bottomLeft: Radius.circular(30),
+                        bottomRight: Radius.circular(30))),
+              ),
             ),
+            // Container(
+            //   height: 250,
+            //   decoration: BoxDecoration(
+            //       image: DecorationImage(
+            //           image: NetworkImage(BASE_URL_IMAGE_LAP + "/${foto}")),
+            //       color: Colors.white,
+            //       borderRadius: const BorderRadius.only(
+            //           bottomLeft: Radius.circular(30),
+            //           bottomRight: Radius.circular(30))),
+            // ),
             const SizedBox(
               height: 8,
             ),
@@ -231,7 +243,7 @@ class _LapanganFutsalState extends State<LapanganFutsal> {
               padding: const EdgeInsets.only(left: 15, right: 15),
               child: Container(
                 width: MediaQuery.of(context).size.width,
-                height: 50,
+                height: 65,
                 child: Padding(
                   padding: const EdgeInsets.only(top: 5, bottom: 10),
                   child: ElevatedButton(

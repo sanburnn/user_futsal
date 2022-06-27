@@ -196,7 +196,7 @@ class _FutsalHomePageState extends State<FutsalHomePage> {
                                     lap.lap[index].namatempat!,
                                     overflow: TextOverflow.ellipsis,
                                     style: GoogleFonts.poppins(
-                                        textStyle: TextStyle(
+                                        textStyle: const TextStyle(
                                             fontWeight: FontWeight.w600,
                                             fontSize: 17)),
                                   ),
@@ -212,7 +212,7 @@ class _FutsalHomePageState extends State<FutsalHomePage> {
                                         child: Text(
                                           lap.lap[index].alamat!,
                                           style: GoogleFonts.poppins(
-                                              textStyle: TextStyle(
+                                              textStyle: const TextStyle(
                                                   fontWeight: FontWeight.w500,
                                                   fontSize: 13)),
                                         ),

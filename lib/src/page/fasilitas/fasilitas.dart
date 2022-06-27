@@ -19,7 +19,6 @@ class _FasilitasPageState extends State<FasilitasPage> {
   FasilitasController fasilitas = Get.put(FasilitasController());
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     fasilitas.getFasilitas(idlap);
   }
@@ -28,7 +27,7 @@ class _FasilitasPageState extends State<FasilitasPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: primaryColorDark),
+        iconTheme: const IconThemeData(color: primaryColorDark),
         backgroundColor: Colors.white,
         title: Text(
           'Fasilitas Tempat',
@@ -49,7 +48,7 @@ class _FasilitasPageState extends State<FasilitasPage> {
                   itemBuilder: (context, index) {
                     return Container(
                       child: Padding(
-                        padding: EdgeInsets.only(left: 25, right: 25),
+                        padding: const EdgeInsets.only(left: 25, right: 25),
                         child: Card(
                           elevation: 10,
                           color: Colors.white,
@@ -64,7 +63,7 @@ class _FasilitasPageState extends State<FasilitasPage> {
                                     '/${fasilitas.fas[index].foto}',
                                 imageBuilder: (context, imageProvider) =>
                                     Container(
-                                  width: 360,
+                                  width: 372,
                                   height: 150,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(10),
@@ -79,19 +78,7 @@ class _FasilitasPageState extends State<FasilitasPage> {
                                 errorWidget: (context, url, error) =>
                                     const Center(child: Icon(Icons.error)),
                               ),
-                              // SizedBox(
-                              //   width: 360,
-                              //   height: 150,
-                              //   child: ClipRRect(
-                              //     borderRadius: BorderRadius.circular(10),
-                              //     child: Image.network(
-                              //       BASE_URL_IMAGE_FASIL +
-                              //           "/${fasilitas.fas[index].foto}",
-                              //       fit: BoxFit.fill,
-                              //     ),
-                              //   ),
-                              // ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 10,
                               ),
                               Container(
@@ -106,28 +93,29 @@ class _FasilitasPageState extends State<FasilitasPage> {
                                   ),
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 10,
                               ),
                               Container(
                                 color: primaryGreyDark,
                                 height: 2,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 10,
                               ),
                               Container(
-                                padding: EdgeInsets.only(left: 5),
+                                padding: const EdgeInsets.only(left: 5),
                                 child: SizedBox(
                                   width: 250,
                                   child: Text(
                                     fasilitas.fas[index].deskripsi!,
                                     style: GoogleFonts.poppins(
-                                        textStyle: TextStyle(fontSize: 14)),
+                                        textStyle:
+                                            const TextStyle(fontSize: 14)),
                                   ),
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               )
                             ],
