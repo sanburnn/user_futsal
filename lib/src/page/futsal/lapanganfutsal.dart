@@ -49,6 +49,15 @@ class _LapanganFutsalState extends State<LapanganFutsal> {
                         bottomLeft: Radius.circular(30),
                         bottomRight: Radius.circular(30))),
               ),
+              placeholder: (context, url) => Container(
+                height: 250,
+                child: const Center(
+                    child: CircularProgressIndicator(
+                  color: primaryColorDark,
+                )),
+              ),
+              errorWidget: (context, url, error) =>
+                  const Center(child: Icon(Icons.error)),
             ),
             // Container(
             //   height: 250,
