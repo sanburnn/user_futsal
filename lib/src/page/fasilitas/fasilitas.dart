@@ -71,10 +71,14 @@ class _FasilitasPageState extends State<FasilitasPage> {
                                           image: imageProvider,
                                           fit: BoxFit.fill)),
                                 ),
-                                placeholder: (context, url) => const Center(
-                                    child: CircularProgressIndicator(
-                                  color: primaryColorDark,
-                                )),
+                                placeholder: (context, url) => Container(
+                                  width: 372,
+                                  height: 150,
+                                  child: const Center(
+                                      child: CircularProgressIndicator(
+                                    color: primaryColorDark,
+                                  )),
+                                ),
                                 errorWidget: (context, url, error) =>
                                     const Center(child: Icon(Icons.error)),
                               ),

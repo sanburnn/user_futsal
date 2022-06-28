@@ -146,11 +146,14 @@ class _FutsalHomePageState extends State<FutsalHomePage> {
                                                   fit: BoxFit.fill)),
                                         ),
                                         placeholder: (context, url) =>
-                                            const Center(
-                                                child:
-                                                    CircularProgressIndicator(
-                                          color: primaryColorDark,
-                                        )),
+                                            Container(
+                                          height: 120,
+                                          width: 195,
+                                          child: const Center(
+                                              child: CircularProgressIndicator(
+                                            color: primaryColorDark,
+                                          )),
+                                        ),
                                         errorWidget: (context, url, error) =>
                                             const Center(
                                                 child: Icon(Icons.error)),
