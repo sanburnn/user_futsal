@@ -158,20 +158,6 @@ class _FutsalHomePageState extends State<FutsalHomePage> {
                                             const Center(
                                                 child: Icon(Icons.error)),
                                       ),
-                                      // SizedBox(
-                                      //   width: 195,
-                                      //   height: 120,
-                                      //   child: ClipRRect(
-                                      //     borderRadius:
-                                      //         BorderRadius.circular(10),
-                                      //     child: Image.network(
-                                      //       BASE_URL_IMAGE_LAP +
-                                      //           "/${lap.lap[index].foto}",
-                                      //       fit: BoxFit.fill,
-                                      //       height: 120,
-                                      //     ),
-                                      //   ),
-                                      // ),
                                       const SizedBox(
                                         width: 10,
                                       ),
@@ -190,7 +176,7 @@ class _FutsalHomePageState extends State<FutsalHomePage> {
                                     ],
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 5,
                                 ),
                                 Container(
@@ -205,7 +191,8 @@ class _FutsalHomePageState extends State<FutsalHomePage> {
                                   ),
                                 ),
                                 Container(
-                                  padding: EdgeInsets.only(left: 5, right: 25),
+                                  padding:
+                                      const EdgeInsets.only(left: 5, right: 25),
                                   child: Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
@@ -252,7 +239,7 @@ class _FutsalHomePageState extends State<FutsalHomePage> {
                                     ],
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 20,
                                 )
                               ],

@@ -1,7 +1,5 @@
 import 'package:get/get.dart';
 import 'package:user_futsal/src/api/repository.dart';
-import 'package:user_futsal/src/model/checkusermodel/CheckUserModel.dart';
-import 'package:user_futsal/src/model/futsalmodel/FutsalModel.dart';
 import 'package:user_futsal/src/model/harimodel/HariModel.dart';
 
 class HariController extends GetxController {

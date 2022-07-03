@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 import 'package:user_futsal/src/api/repository.dart';
-import 'package:user_futsal/src/model/checkusermodel/CheckUserModel.dart';
 import 'package:user_futsal/src/model/futsalmodel/FutsalModel.dart';
 
 class LapanganController extends GetxController {

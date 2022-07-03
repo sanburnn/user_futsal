@@ -1,7 +1,7 @@
-const String BASE_URL = 'https://bosomy-unit.000webhostapp.com';
+const String BASE_URL = 'https://nesabacloud.com/dimasfutsal';
 const String BASE_URL_IMAGE_LAP =
-    'https://bosomy-unit.000webhostapp.com/fotofutsal';
+    'https://nesabacloud.com/dimasfutsal/fotofutsal';
 const String BASE_URL_IMAGE_FASIL =
-    'https://bosomy-unit.000webhostapp.com/fotofasilitas';
+    'https://nesabacloud.com/dimasfutsal/fotofasilitas';
 const String BASE_URL_IMAGE_BUKTI =
-    'https://bosomy-unit.000webhostapp.com/fotobukti';
+    'https://nesabacloud.com/dimasfutsal/fotobukti';

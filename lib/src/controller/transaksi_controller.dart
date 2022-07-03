@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 import 'package:user_futsal/src/api/repository.dart';
-import 'package:user_futsal/src/model/pertandinganmodel/PertandinganModel.dart';
 import 'package:user_futsal/src/model/transaksimodel/TransaksiModel.dart';
 
 class TransaksiController extends GetxController {
