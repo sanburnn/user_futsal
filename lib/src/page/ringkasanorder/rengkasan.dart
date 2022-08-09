@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:user_futsal/src/config/env.dart';
 import 'package:user_futsal/src/controller/cekuser_controller.dart';
 import 'package:user_futsal/src/controller/createTrx_controller.dart';
+import 'package:user_futsal/src/controller/updateJam_controller.dart';
 import 'package:user_futsal/src/router/constant.dart';
 import 'package:user_futsal/src/services/themes.dart';
 
@@ -28,10 +29,17 @@ class _RingkasanPageState extends State<RingkasanPage> {
   var rekening = Get.arguments[8];
   var idLap = Get.arguments[9];
   var tanggal = Get.arguments[10];
+  var totalId = Get.arguments[11];
   List<String> buttonText = ["cod", "trf"];
   CreateTrxController order = Get.put(CreateTrxController());
   CekuserController cek = Get.put(CekuserController());
+  final UpdateJamController update = Get.put(UpdateJamController());
   String? _radioValue;
+  @override
+  void initState() {
+    super.initState();
+    print(totalId.replaceAll("]", ""));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -336,6 +344,8 @@ class _RingkasanPageState extends State<RingkasanPage> {
                                 tanggal,
                                 '${jamMulai} - ${jamAkhir}',
                                 'cod');
+                            await update.updateJam(
+                                "booked", totalId.replaceAll("]", ""));
                             Get.offAndToNamed(codRoute);
                           } else {
                             await order.createTrx(

@@ -14,6 +14,7 @@ import 'package:user_futsal/src/model/loginmodel/LoginResModel.dart';
 import 'package:user_futsal/src/model/pertandinganmodel/PertandinganModel.dart';
 import 'package:user_futsal/src/model/registermodel/RegisterResModel.dart';
 import 'package:user_futsal/src/model/transaksimodel/TransaksiModel.dart';
+import 'package:user_futsal/src/model/updatejamodel/updateJam_model.dart';
 import 'package:user_futsal/src/model/uploadbuktimodel/UploadModel.dart';
 import 'package:user_futsal/src/prefs/prefrences.dart';
 import 'package:user_futsal/src/router/constant.dart';
@@ -201,5 +202,25 @@ class ApiService extends GetConnect {
       return null;
     }
     return null;
+  }
+
+  Future<UpdateJam?> updateJam(
+    String status,
+    String idjadwal,
+  ) async {
+    var url = Uri.parse('$BASE_URL/updateJamUser');
+    dynamic body = ({"satatus": status, "idjadwal": idjadwal});
+    final response = await http.post(url,
+        headers: {
+          'Accept': 'application/json',
+        },
+        body: jsonEncode(body));
+    print(response.body);
+
+    if (response.statusCode == 200) {
+      return UpdateJam.fromJson(response.body);
+    } else {
+      return null;
+    }
   }
 }

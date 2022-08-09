@@ -31,6 +31,7 @@ class _BookingPageState extends State<BookingPage> {
   int? _radioValue = -1;
   bool isSelected = false;
   List selectedJam = [];
+  List idselectedJam = [];
   bool isTapped = true;
   //*===========range=====
 
@@ -286,6 +287,14 @@ class _BookingPageState extends State<BookingPage> {
                                       } else {
                                         selectedJam.add(jam.jam[index].jam);
                                       }
+                                      if (idselectedJam
+                                          .contains(jam.jam[index].idjadwal)) {
+                                        idselectedJam
+                                            .remove(jam.jam[index].idjadwal);
+                                      } else {
+                                        idselectedJam
+                                            .add(jam.jam[index].idjadwal);
+                                      }
 
                                       isTapped = !isTapped;
                                       print(selectedJam);
@@ -426,6 +435,9 @@ class _BookingPageState extends State<BookingPage> {
                           print('pas suh');
                           print(rekening);
                           print(' ${selectedJam.first} - ${selectedJam.last}');
+                          List totalId = [idselectedJam];
+                          String totalsit = totalId.toString();
+                          print(totalsit);
                           Get.toNamed(ringkasanRoute, arguments: [
                             foto,
                             nama,
@@ -437,7 +449,8 @@ class _BookingPageState extends State<BookingPage> {
                             selectedJam,
                             rekening,
                             idLap,
-                            valueHari
+                            valueHari,
+                            totalsit.replaceAll("[", "")
                           ]);
                         }
                       },
